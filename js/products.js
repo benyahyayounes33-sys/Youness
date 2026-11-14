@@ -14,6 +14,23 @@ const STORE = {
   whatsapp: "",
   email: "hello@oneline.store",
   instagram: "https://instagram.com/",
+
+  // Where orders and newsletter sign-ups are sent. Without this (or a WhatsApp
+  // number) you will NOT receive orders. Paste a Google Apps Script web-app URL
+  // (see tools/google-sheet-orders.gs → orders land in a Google Sheet) or a
+  // Formspree form URL (https://formspree.io/f/xxxxxx).
+  orderEndpoint: "",
+
+  // Payment options shown at checkout and in the footer. Only list what you can
+  // actually accept — add "Card" / "PayPal" once they are really connected.
+  payments: ["Cash on delivery"],
+
+  // Discount codes → percent off. Give each creator/influencer their own code
+  // so you can see who drives sales.
+  codes: {
+    ONELINE10: 10,          // newsletter welcome code
+  },
+  welcomeCode: "ONELINE10", // shown after newsletter sign-up ("" to show none)
 };
 
 /* Size / format options — price is added to nothing, it IS the price. */

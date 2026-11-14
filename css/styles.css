@@ -320,6 +320,12 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .cart__foot { padding: 20px 24px 24px; border-top: 1px solid var(--line); }
 .cart__row { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 8px; }
 .cart__row--discount { color: #16a34a; font-weight: 600; }
+.promo { display: flex; gap: 8px; margin-bottom: 16px; }
+.promo input { flex: 1; min-width: 0; height: 44px; border: 1.5px solid var(--line); border-radius: 999px; padding: 0 16px; outline: none; text-transform: uppercase; }
+.promo input::placeholder { text-transform: none; }
+.promo input:focus { border-color: var(--ink); }
+.promo .btn { height: 44px; padding: 0 18px; font-size: 14px; }
+.promo.applied input { border-color: #16a34a; color: #16a34a; font-weight: 700; }
 .cart__row--total { font-size: 19px; font-weight: 800; margin: 14px 0 18px; padding-top: 14px; border-top: 1px dashed var(--line); }
 
 .modal { position: fixed; inset: 0; z-index: 110; display: grid; place-items: center; padding: 20px; pointer-events: none; opacity: 0; transition: opacity .3s; }
@@ -379,6 +385,8 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .co__check { width: 72px; height: 72px; border-radius: 50%; background: #22c55e; color: #fff; font-size: 36px; display: grid; place-items: center; margin: 0 auto 18px; }
 .co__done h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 34px; margin: 0 0 10px; }
 .co__done p { color: #4a4a50; margin: 0 0 24px; }
+.co__done .btn--whatsapp { margin: 0 0 10px; }
+.co__pay-options { display: flex; gap: 10px; flex-wrap: wrap; }
 
 /* Toast */
 .toast {

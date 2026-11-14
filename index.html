@@ -50,7 +50,6 @@
         <a href="#shop">Shop</a>
         <a href="#collections">Collections</a>
         <a href="#how">Quality</a>
-        <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
       </nav>
 
@@ -98,7 +97,7 @@
           </div>
           <ul class="hero__stats">
             <li><b>20+</b><span>Designs</span></li>
-            <li><b>4.9★</b><span>Avg. rating</span></li>
+            <li><b>30-day</b><span>Guarantee</span></li>
             <li><b>48h</b><span>Dispatch</span></li>
           </ul>
         </div>
@@ -217,8 +216,10 @@
       </div>
     </section>
 
-    <!-- Reviews -->
-    <section class="section" id="reviews">
+    <!-- Reviews — HIDDEN until you have real customer reviews.
+         Replace the three quotes below with real ones (with permission),
+         then remove the `hidden` attribute and re-add the "Reviews" nav links. -->
+    <section class="section" id="reviews" hidden>
       <div class="container">
         <div class="section__head">
           <div>
@@ -331,9 +332,7 @@
     </div>
     <div class="container footer__bottom">
       <span>© <span data-year></span> ONELINE. All rights reserved.</span>
-      <span class="pay">
-        <span>VISA</span><span>Mastercard</span><span>PayPal</span><span>Cash on delivery</span>
-      </span>
+      <span class="pay" data-pay-badges></span>
     </div>
   </footer>
 
@@ -349,7 +348,6 @@
       <a href="#shop">Shop all</a>
       <a href="#collections">Collections</a>
       <a href="#how">Quality</a>
-      <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
     </nav>
   </div>
@@ -368,8 +366,13 @@
     </div>
     <div class="cart__items" data-cart-items></div>
     <div class="cart__foot" data-cart-foot>
+      <form class="promo" data-promo-form>
+        <input name="code" placeholder="Discount code" aria-label="Discount code" autocomplete="off" />
+        <button class="btn btn--ghost" type="submit" data-promo-btn>Apply</button>
+      </form>
       <div class="cart__row"><span>Subtotal</span><span data-subtotal></span></div>
       <div class="cart__row cart__row--discount" data-discount-row hidden><span>Buy 3 get 1 free</span><span data-discount></span></div>
+      <div class="cart__row cart__row--discount" data-promo-row hidden><span data-promo-label></span><span data-promo></span></div>
       <div class="cart__row"><span>Shipping</span><span data-shipping></span></div>
       <div class="cart__row cart__row--total"><span>Total</span><span data-total></span></div>
       <button class="btn btn--primary btn--block" data-checkout>Checkout</button>
@@ -436,19 +439,18 @@
           </div>
           <fieldset class="co__pay">
             <legend>Payment</legend>
-            <label class="radio"><input type="radio" name="pay" value="Cash on delivery" checked /> Cash on delivery</label>
-            <label class="radio"><input type="radio" name="pay" value="Card" /> Credit / debit card</label>
-            <label class="radio"><input type="radio" name="pay" value="PayPal" /> PayPal</label>
+            <div class="co__pay-options" data-pay-options></div>
           </fieldset>
           <div class="co__summary" data-co-summary></div>
-          <button class="btn btn--primary btn--block" type="submit">Place order</button>
+          <button class="btn btn--primary btn--block" type="submit" data-co-submit>Place order</button>
         </form>
       </div>
       <div class="co__done" data-co-done hidden>
         <div class="co__check">✓</div>
         <h3>Thank you for your order!</h3>
-        <p>Order <b data-co-number></b> has been received. A confirmation will be sent to <b data-co-email></b>.</p>
-        <button class="btn btn--primary" data-close>Continue shopping</button>
+        <p>Order <b data-co-number></b> — <span data-co-msg></span></p>
+        <a class="btn btn--whatsapp btn--block" data-co-whatsapp target="_blank" rel="noopener" hidden>Confirm my order on WhatsApp</a>
+        <button class="btn btn--ghost btn--block co__continue" data-close>Continue shopping</button>
       </div>
     </div>
   </div>

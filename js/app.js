@@ -23,6 +23,10 @@
 
   let cart = load("oneline_cart", []).filter((i) => byId[i.id] && sizeById[i.size] && frameById[i.frame]);
   let wish = new Set(load("oneline_wish", []).filter((id) => byId[id]));
+  const codes = Object.fromEntries(Object.entries(STORE.codes || {}).map(([k, v]) => [k.toUpperCase(), v]));
+  let promo = load("oneline_promo", "");
+  if (!codes[promo]) promo = "";
+  const payments = STORE.payments && STORE.payments.length ? STORE.payments : ["Cash on delivery"];
 
   const state = { cat: "all", q: "", sort: "featured" };
 
@@ -31,6 +35,13 @@
   $("[data-year]").textContent = new Date().getFullYear();
   $("[data-mail]").href = `mailto:${STORE.email}`;
   $("[data-insta]").href = STORE.instagram;
+  const esc = (v) => String(v).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  $("[data-pay-badges]").innerHTML = payments.map((p) => `<span>${esc(p)}</span>`).join("");
+  $("[data-pay-options]").innerHTML = payments.map((p, i) =>
+    `<label class="radio"><input type="radio" name="pay" value="${esc(p)}" ${i ? "" : "checked"} /> ${esc(p)}</label>`).join("");
+  if (!STORE.orderEndpoint && !STORE.whatsapp) {
+    console.warn("[ONELINE] No STORE.orderEndpoint or STORE.whatsapp set in js/products.js — orders will not reach you.");
+  }
   $$("[data-cat-count]").forEach((el) => {
     const n = PRODUCTS.filter((p) => p.cat === el.dataset.catCount).length;
     el.textContent = `${n} poster${n === 1 ? "" : "s"}`;
@@ -225,10 +236,12 @@
     const units = cart.flatMap((i) => Array(i.qty).fill(unitPrice(i))).sort((a, b) => a - b);
     const free = Math.floor(units.length / 4);
     const discount = units.slice(0, free).reduce((s, v) => s + v, 0);
-    const afterDiscount = subtotal - discount;
+    const pct = promo ? codes[promo] : 0;
+    const promoOff = Math.round((subtotal - discount) * pct) / 100;
+    const afterDiscount = subtotal - discount - promoOff;
     const shipping = !cart.length || afterDiscount >= STORE.freeShippingFrom ? 0 : STORE.shippingCost;
     const count = units.length;
-    return { subtotal, discount, shipping, total: afterDiscount + shipping, count, afterDiscount };
+    return { subtotal, discount, promo, pct, promoOff, shipping, total: afterDiscount + shipping, count, afterDiscount };
   }
 
   function addToCart(id, size, frame, qty) {
@@ -280,6 +293,14 @@
     $("[data-subtotal]").textContent = money(t.subtotal);
     $("[data-discount-row]").hidden = !t.discount;
     $("[data-discount]").textContent = "−" + money(t.discount);
+    $("[data-promo-row]").hidden = !t.promo;
+    $("[data-promo-label]").textContent = t.promo ? `Code ${t.promo} (−${t.pct}%)` : "";
+    $("[data-promo]").textContent = "−" + money(t.promoOff);
+    const pf = $("[data-promo-form]");
+    pf.classList.toggle("applied", !!t.promo);
+    pf.code.value = t.promo;
+    pf.code.readOnly = !!t.promo;
+    $("[data-promo-btn]").textContent = t.promo ? "Remove" : "Apply";
     $("[data-shipping]").textContent = t.shipping ? money(t.shipping) : "Free";
     $("[data-total]").textContent = money(t.total);
 
@@ -295,11 +316,33 @@
     const wa = $("[data-whatsapp]");
     if (STORE.whatsapp && cart.length) {
       wa.hidden = false;
-      const lines = cart.map((i) => `• ${byId[i.id].name} — ${sizeById[i.size].label}, ${frameById[i.frame].label} × ${i.qty}`);
-      const msg = `Hi ${STORE.name}! I'd like to order:\n${lines.join("\n")}\n\nTotal: ${money(t.total)}`;
-      wa.href = `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(msg)}`;
+      wa.href = waLink(`Hi ${STORE.name}! I'd like to order:\n${orderLines(cart).join("\n")}${t.promo ? `\nCode: ${t.promo}` : ""}\n\nTotal: ${money(t.total)}`);
     } else wa.hidden = true;
   }
+
+  const orderLines = (items) => items.map((i) => `• ${byId[i.id].name} — ${sizeById[i.size].label}, ${frameById[i.frame].label} × ${i.qty}`);
+  const waLink = (msg) => `https://wa.me/${String(STORE.whatsapp).replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
+
+  // Sends a record (order or newsletter sign-up) to STORE.orderEndpoint as a
+  // simple form post — works with Google Apps Script and Formspree.
+  async function send(record) {
+    if (!STORE.orderEndpoint) return false;
+    await fetch(STORE.orderEndpoint, {
+      method: "POST", mode: "no-cors", keepalive: true,
+      body: new URLSearchParams(record),
+    });
+    return true;
+  }
+
+  $("[data-promo-form]").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (promo) { promo = ""; save("oneline_promo", ""); renderCart(); toast("Discount code removed"); return; }
+    const code = e.target.code.value.trim().toUpperCase();
+    if (!code) return;
+    if (!codes[code]) { toast(`“${code}” isn’t a valid code`); return; }
+    promo = code; save("oneline_promo", code); renderCart();
+    toast(`Code ${code} applied — ${codes[code]}% off`);
+  });
 
   $("[data-cart-items]").addEventListener("click", (e) => {
     const t = e.target.closest("button");
@@ -320,6 +363,7 @@
     $("[data-co-summary]").innerHTML = `
       <div class="cart__row"><span>${t.count} poster${t.count === 1 ? "" : "s"}</span><span>${money(t.subtotal)}</span></div>
       ${t.discount ? `<div class="cart__row cart__row--discount"><span>Buy 3 get 1 free</span><span>−${money(t.discount)}</span></div>` : ""}
+      ${t.promo ? `<div class="cart__row cart__row--discount"><span>Code ${t.promo}</span><span>−${money(t.promoOff)}</span></div>` : ""}
       <div class="cart__row"><span>Shipping</span><span>${t.shipping ? money(t.shipping) : "Free"}</span></div>
       <div class="cart__row"><span>Total</span><span>${money(t.total)}</span></div>`;
     $("[data-co-form-wrap]").hidden = false;
@@ -327,27 +371,64 @@
     open("checkout");
   });
 
-  $("[data-co-form]").addEventListener("submit", (e) => {
+  $("[data-co-form]").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.target));
+    if (!cart.length) return;
+    const form = e.target;
+    const btn = $("[data-co-submit]");
+    const data = Object.fromEntries(new FormData(form));
     const number = "OL-" + Date.now().toString(36).toUpperCase().slice(-6);
-    // TODO: send `data` + `cart` to your backend / payment provider here.
-    const orders = load("oneline_orders", []);
-    orders.push({ number, date: new Date().toISOString(), customer: data, items: cart, totals: totals() });
-    save("oneline_orders", orders);
+    const t = totals();
+    const items = orderLines(cart).join("\n");
 
+    btn.disabled = true; btn.textContent = "Placing order…";
+    let sent = false;
+    try {
+      sent = await send({
+        type: "order", order: number, date: new Date().toISOString(),
+        name: data.name, phone: data.phone, email: data.email,
+        address: data.address, city: data.city, zip: data.zip || "", payment: data.pay,
+        items, posters: t.count, subtotal: t.subtotal.toFixed(2),
+        discount: (t.discount + t.promoOff).toFixed(2), code: t.promo,
+        shipping: t.shipping.toFixed(2), total: t.total.toFixed(2),
+      });
+    } catch (err) {
+      console.error("[ONELINE] Order could not be sent:", err);
+    }
+    btn.disabled = false; btn.textContent = "Place order";
+
+    // Nothing reached the shop and there's no WhatsApp fallback → keep the cart so the customer can retry.
+    if (!sent && !STORE.whatsapp) {
+      toast(STORE.orderEndpoint
+        ? "Sorry — we couldn’t send your order. Please check your connection and try again."
+        : `Online ordering isn’t open yet — please contact us at ${STORE.email}.`);
+      return;
+    }
+
+    const wa = $("[data-co-whatsapp]");
+    wa.hidden = !STORE.whatsapp;
+    if (STORE.whatsapp) {
+      wa.href = waLink(
+        `Hi ${STORE.name}! Order ${number}\n${items}${t.promo ? `\nCode: ${t.promo}` : ""}\nTotal: ${money(t.total)} (${data.pay})\n\n` +
+        `${data.name} · ${data.phone}\n${data.address}, ${data.city}${data.zip ? " " + data.zip : ""}`);
+    }
     $("[data-co-number]").textContent = number;
-    $("[data-co-email]").textContent = data.email;
+    $("[data-co-msg]").textContent = sent
+      ? `received! We’ll contact you on ${data.phone} to confirm delivery.`
+      : "almost done — tap below to send it to us on WhatsApp and we’ll confirm delivery.";
     $("[data-co-form-wrap]").hidden = true;
     $("[data-co-done]").hidden = false;
-    cart = []; persistCart(); e.target.reset();
+    cart = []; promo = ""; save("oneline_promo", ""); persistCart(); form.reset();
   });
 
   /* ---------- Newsletter ---------- */
   $("[data-newsletter]").addEventListener("submit", (e) => {
     e.preventDefault();
+    const email = e.target.querySelector("input[type=email]").value;
+    send({ type: "newsletter", email, date: new Date().toISOString() }).catch((err) => console.error("[ONELINE] Sign-up not sent:", err));
     e.target.reset();
-    toast("You’re in! Use code ONELINE10 for 10% off.");
+    const welcome = String(STORE.welcomeCode || "").toUpperCase();
+    toast(codes[welcome] ? `You’re in! Use code ${welcome} for ${codes[welcome]}% off.` : "You’re in! Watch your inbox for new drops.");
   });
 
   /* ---------- Toast ---------- */
