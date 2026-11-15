@@ -1,0 +1,19 @@
+{
+ "slug": "STARRY-NIGHT",
+ "source": "/tmp/claude-0/-home-user-Youness/a8028edc-53cc-5fbe-935c-b30a3e92d5b4/scratchpad/dl_masterpieces/starry.jpg",
+ "title": "THE STARRY NIGHT",
+ "subtitle": "LA NUIT ÉTOILÉE  ·  VINCENT VAN GOGH",
+ "details": "1889   ·   HUILE SUR TOILE   ·   73,7 × 92,1 CM",
+ "source_info": "Vincent van Gogh, The Starry Night (1889), public domain (artist died 1890). Digital file: Wikimedia Commons 'Van Gogh - Starry Night - Google Art Project.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg)",
+ "out_dir": "/home/user/Youness/business/poster-collection",
+ "font_dir": "/home/user/Youness/business/tools/fonts",
+ "background": "#EDE8DF",
+ "ink": "#1E1B18",
+ "crop": [
+  0.006,
+  0.004,
+  0.985,
+  0.996
+ ],
+ "crop_note": "Trimmed the unpainted canvas edge visible in the photo (about 1.5% right, 0.6% left, 0.4% top/bottom)."
+}

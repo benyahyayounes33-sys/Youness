@@ -8,9 +8,9 @@ _Measured on 15/11/2026 with Python (Pillow + NumPy). Labels: ✅ fact · 🔶 a
 |---|---|
 | How many files reach **300 DPI** at A5, A4 or A3? | **0 of 30** |
 | How many reach even the **150 DPI** minimum at A5? | **0 of 30** (best: 126 DPI at A5) |
-| Why? | Every file is **609–736 px wide**. 736 px is one of Pinterest’s standard display widths ✅, so these are very likely Pinterest downloads 🔶: screen previews, not print originals. |
+| Why? | Every file is **609–736 px wide**. 736 px is the standard Pinterest preview width ✅: these are previews, not originals. |
 | How many can be **sold legally** as they are? | **0 of 30**. 29 contain someone else’s copyright, trademarks or likeness. The 30th (Mona Lisa) shows a public-domain painting, but the file is another designer’s layout. |
-| What was produced? | A **new, legal Mona Lisa poster** built from a high-resolution public-domain source: A5 / A4 / A3, verified at 300 DPI. See section 4. |
+| What was produced? | A legal **“Chefs-d’œuvre” series of 6 posters** (public-domain masterpieces, high-resolution sources): A5 / A4 / A3, trim size + 3 mm bleed = **36 PDFs, all verified at 300 DPI**. See section 4. |
 
 ## 2. Image by image
 
@@ -63,14 +63,25 @@ DPI = effective resolution if the image fills the page (cover fit). Fit loss = %
 
 **If one of these designs is actually yours** (you made it from scratch), tell me which one and send me the original high-resolution file (not a Pinterest download). I’ll process it, after removing any brand logos, names or real people’s faces.
 
-## 4. Produced: MONA LISA, a legal and verified poster
+## 4. Produced: the “Chefs-d’œuvre” series (Collection 01)
 
-- **Source:** Leonardo da Vinci, Mona Lisa (1503-1519), public domain. Digital file: Wikimedia Commons, 'Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg) ✅. Painting in the public domain (author died 1519). The digital file is a faithful reproduction of a 2D public-domain work. Treated as public domain in many countries; the position in Moroccan law for this type of photo is not clearly established 🔶.
-- **Source resolution:** 3840×5723 px. That is more than A3 at 300 DPI needs, so everything is downsampled. Nothing is invented.
-- **Colour:** no embedded profile - treated as sRGB. sRGB profile embedded in the artwork JPEGs.
-- **Processing:** Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.
-- **Layout:** original minimalist museum design (not a copy of the Pinterest layout or its quote). Title + French details. 5 colour swatches sampled from the painting. Font: Inter (SIL Open Font License ✅, commercial use and embedding allowed). No logo or watermark added.
-- **Text on the poster:** factual only (title, artist, dates, medium, dimensions). Facts are not protected by copyright ✅.
+Each poster is built from a **high-resolution source of a public-domain work** (the Mona Lisa replaces your Pinterest file #13). All sources are larger than the A3 artwork needs, so everything is **downsampled only**: no upscaling, no AI, no invented detail.
+
+| Poster | Artist (copyright basis) | Source (Wikimedia Commons, 3840 px standard rendition) | Source px | Colour | Note |
+|---|---|---|---|---|---|
+| MONA-LISA | Leonardo da Vinci, died 1519 ✅ | Wikimedia Commons, 'Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg) | 3840×5723 | no embedded profile - treated as sRGB |  |
+| STARRY-NIGHT | Vincent van Gogh, died 1890 ✅ | Wikimedia Commons 'Van Gogh - Starry Night - Google Art Project.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg) | 3759×3016 | no embedded profile - treated as sRGB |  |
+| THE-KISS | Gustav Klimt, died 1918 ✅ | Wikimedia Commons 'The Kiss - Gustav Klimt - Google Cultural Institute.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg) | 3840×3853 | no embedded profile - treated as sRGB |  |
+| GREAT-WAVE | Katsushika Hokusai, died 1849 ✅ | Wikimedia Commons 'Great Wave off Kanagawa2.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg) | 3840×2628 | no embedded profile - treated as sRGB |  |
+| PEARL-EARRING | Johannes Vermeer, died 1675 ✅ | Wikimedia Commons '1665 Girl with a Pearl Earring.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg) | 3840×4548 | embedded ICC profile converted to sRGB |  |
+| IMPRESSION-SUNRISE | Claude Monet, died 1926 ✅ | Wikimedia Commons 'Monet - Impression, Sunrise.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg) | 3840×2979 | embedded ICC profile converted to sRGB |  |
+
+- **Rights:** each artist died more than 70 years ago, so the works are in the public domain in Morocco (copyright = life + 70 years ✅). The digital files are faithful photographic reproductions of these works. Many countries treat such reproductions as public domain; Moroccan law has no clear position on this type of photo 🔶. Low risk, but not zero.
+- **Not mentioned on the posters:** museum names (the Louvre, MoMA, the Belvedere… protect their names as trademarks 🔶).
+- **Processing (identical for all):** Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.
+- **Layout:** original minimalist museum design (not copied from any Pinterest layout). English title + French title and details. 5 colour swatches sampled from each painting. Font: Inter (SIL Open Font License ✅). No logo or watermark. Text = facts only (title, artist, date, medium, dimensions).
+
+### Checks run on every PDF (read back from the finished files)
 
 | File | Page (mm) | Embedded image (px) | Effective DPI | Proportions | Re-compression | Safe zone | Result |
 |---|---|---|---|---|---|---|---|
@@ -80,10 +91,40 @@ DPI = effective resolution if the image fills the page (cover fit). Fit loss = %
 | MONA-LISA_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 1625×2421 | 300.0 | kept | none | ok | ✅ PASS |
 | MONA-LISA_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 2298×3424 | 300.0 | kept | none | ok | ✅ PASS |
 | MONA-LISA_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 2298×3424 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A5_300DPI_PRINT.pdf | 148.0 × 210.0 | 1515×1216 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A5_300DPI_PRINT_BLEED3MM.pdf | 154.0 × 216.0 | 1515×1216 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A4_300DPI_PRINT.pdf | 210.0 × 297.0 | 2150×1725 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 2150×1725 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 3040×2439 | 300.0 | kept | none | ok | ✅ PASS |
+| STARRY-NIGHT_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 3040×2439 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A5_300DPI_PRINT.pdf | 148.0 × 210.0 | 1415×1420 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A5_300DPI_PRINT_BLEED3MM.pdf | 154.0 × 216.0 | 1415×1420 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A4_300DPI_PRINT.pdf | 210.0 × 297.0 | 2008×2015 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 2008×2015 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 2840×2849 | 300.0 | kept | none | ok | ✅ PASS |
+| THE-KISS_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 2840×2849 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A5_300DPI_PRINT.pdf | 148.0 × 210.0 | 1515×1037 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A5_300DPI_PRINT_BLEED3MM.pdf | 154.0 × 216.0 | 1515×1037 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A4_300DPI_PRINT.pdf | 210.0 × 297.0 | 2150×1471 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 2150×1471 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 3040×2081 | 300.0 | kept | none | ok | ✅ PASS |
+| GREAT-WAVE_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 3040×2081 | 300.0 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A5_300DPI_PRINT.pdf | 148.0 × 210.0 | 1282×1518 | 300.0 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A5_300DPI_PRINT_BLEED3MM.pdf | 154.0 × 216.0 | 1282×1518 | 300.0 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A4_300DPI_PRINT.pdf | 210.0 × 297.0 | 1819×2154 | 300.0 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 1819×2154 | 300.0 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 2572×3047 | 299.9 | kept | none | ok | ✅ PASS |
+| PEARL-EARRING_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 2572×3047 | 299.9 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A5_300DPI_PRINT.pdf | 148.0 × 210.0 | 1515×1175 | 299.9 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A5_300DPI_PRINT_BLEED3MM.pdf | 154.0 × 216.0 | 1515×1175 | 299.9 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A4_300DPI_PRINT.pdf | 210.0 × 297.0 | 2150×1668 | 300.1 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A4_300DPI_PRINT_BLEED3MM.pdf | 216.0 × 303.0 | 2150×1668 | 300.1 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A3_300DPI_PRINT.pdf | 297.0 × 420.0 | 3040×2358 | 299.9 | kept | none | ok | ✅ PASS |
+| IMPRESSION-SUNRISE_A3_300DPI_PRINT_BLEED3MM.pdf | 303.0 × 426.0 | 3040×2358 | 299.9 | kept | none | ok | ✅ PASS |
 
-Every check above was read back from the finished PDFs (not assumed). Visual check: the paint cracks are visible at 100%, with no halo or artificial texture (`07 PREVIEW IMAGES/WHY-SOURCE-RESOLUTION-MATTERS_A3_100pct.png`).
+Visual check: real paint detail at 100% (cracks, brushstrokes, gold leaf), no halos or artificial texture. Comparison: `07 PREVIEW IMAGES/WHY-SOURCE-RESOLUTION-MATTERS_A3_100pct.png`.
 
-**Before selling this one:** print **one A4** at your chosen shop and check it with the test-sheet checklist. A file can be perfect and still print badly on poor paper or a poorly set-up machine.
+**Before selling:** print **one A4** of the darkest poster (Girl with a Pearl Earring or The Starry Night) at your chosen shop and check it against the test-sheet checklist. Dark backgrounds are the first thing a poor print ruins.
 
 ## 5. Legal alternatives for the themes you like
 
@@ -94,5 +135,4 @@ Every check above was read back from the finished PDFs (not assumed). Visual che
 | Films, series and Venom (6 images) | **Fake film posters** for films that don’t exist (designs #5–#6), or classic films whose rights have expired. Check each one: a film’s copyright and its actors’ likeness are separate questions 🔶. |
 | Music artists (2 images) | Instruments, eras, invented tracklists (design #7). No photos of artists and no lyrics. |
 | Football (2 images) | Custom tactics board, Moroccan colours, no crests or players (design #8). |
-| Photos of people (BLUR, UNSEEN 007) | Your own photos, with written consent from the person photographed. |
-| Art (Mona Lisa) | ✅ **A “Masterpieces” series** from public-domain works (Van Gogh, Hokusai, Klimt…), built from high-resolution sources like this one. Check each artist’s date of death (life + 70 years in Morocco ✅). |
+| Art (Mona Lisa) | ✅ **Done: “Chefs-d’œuvre” Collection 01, 6 posters** (section 4). For more: same method, after checking the artist’s date of death (life + 70 years ✅). |

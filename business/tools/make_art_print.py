@@ -58,17 +58,33 @@ def swatches(im, k=5, seed=0):
     return ["#%02X%02X%02X" % tuple(int(round(c)) for c in col) for col in centers]
 
 
-def layout(W, H, art_ratio):
-    """All values in mm, measured from the TOP-LEFT of the trim box. Scales with the A-series."""
+def fit_size(text, font, size, char_space, max_w_mm):
+    """Shrink a font size so the text (with letter spacing) fits max_w_mm."""
+    w = (pdfmetrics.stringWidth(text, font, size) + char_space * (len(text) - 1)) / mm
+    return size if w <= max_w_mm else size * max_w_mm / w * 0.995
+
+
+def layout(W, H, art_ratio, spec):
+    """All values in mm, measured from the TOP-LEFT of the trim box. Scales with the A-series.
+    Portrait artworks keep wide side margins; square and landscape artworks get progressively more width.
+    The whole block (artwork + text) is placed slightly above the vertical centre."""
     s = W / 210.0
-    top, max_h, max_w = 18 * s, 205 * s, W - 2 * 28 * s
+    side = 28 if art_ratio >= 1.15 else (20 if art_ratio >= 0.87 else 14)   # portrait / square / landscape
+    max_h, max_w = 205 * s, W - 2 * side * s
     ah = min(max_h, max_w * art_ratio)
     aw = ah / art_ratio
-    L = {"s": s, "art": ((W - aw) / 2, top, aw, ah)}
-    y = top + ah + 12 * s
-    L["title"] = (y + 40 * s * 0.3528 * 0.73, max(14, 40 * s))       # baseline, font size pt
-    L["subtitle"] = (L["title"][0] + 7 * s, max(6.5, 9.5 * s))
-    L["details"] = (L["subtitle"][0] + 5.5 * s, max(5.5, 7 * s))
+    text_w = W - 2 * 20 * s
+    cs = {"title": 1.5 * s, "subtitle": 1.6 * s, "details": 0.9 * s}
+    t_size = fit_size(spec["title"], "InterDisplay-Bold", max(14, 40 * s), cs["title"], text_w)
+    st_size = fit_size(spec["subtitle"], "Inter-Medium", max(6.5, 9.5 * s), cs["subtitle"], text_w)
+    d_size = fit_size(spec["details"], "Inter-Regular", max(5.5, 7 * s), cs["details"], text_w)
+    cap = t_size * 0.3528 * 0.73
+    block = ah + 12 * s + cap + 7 * s + 5.5 * s + 8 * s + 6 * s
+    top = max(18 * s, (H - block) * 0.42)
+    L = {"s": s, "cs": cs, "art": ((W - aw) / 2, top, aw, ah)}
+    L["title"] = (top + ah + 12 * s + cap, t_size)                     # baseline (mm from top), font size pt
+    L["subtitle"] = (L["title"][0] + 7 * s, st_size)
+    L["details"] = (L["subtitle"][0] + 5.5 * s, d_size)
     L["sw_top"], L["sw"], L["sw_gap"] = L["details"][0] + 8 * s, 6 * s, 2.5 * s
     L["bottom_used"] = L["sw_top"] + L["sw"]
     return L
@@ -91,7 +107,7 @@ def build_pdf(path, size_name, art_jpg, art_ratio, spec, palette, bleed):
     c = canvas.Canvas(path, pagesize=(PW * mm, PH * mm), pageCompression=1)
     c.setTitle(f'{spec["title"]} - {size_name} - 300 DPI print' + (" (3 mm bleed)" if bleed else ""))
     c.setCreator("make_art_print.py")
-    L = layout(W, H, art_ratio)
+    L = layout(W, H, art_ratio, spec)
     s = L["s"]
     X = lambda v: (off + v) * mm
     Y = lambda v: (off + H - v) * mm  # v = mm from top of trim
@@ -101,9 +117,9 @@ def build_pdf(path, size_name, art_jpg, art_ratio, spec, palette, bleed):
     c.drawImage(art_jpg, X(ax), Y(ay + ah), aw * mm, ah * mm)
     c.setFillColor(HexColor(spec["ink"]))
     mid = (off + W / 2) * mm
-    centered(c, spec["title"], "InterDisplay-Bold", L["title"][1], mid, Y(L["title"][0]), 1.5 * s)
-    centered(c, spec["subtitle"], "Inter-Medium", L["subtitle"][1], mid, Y(L["subtitle"][0]), 1.6 * s)
-    centered(c, spec["details"], "Inter-Regular", L["details"][1], mid, Y(L["details"][0]), 0.9 * s)
+    centered(c, spec["title"], "InterDisplay-Bold", L["title"][1], mid, Y(L["title"][0]), L["cs"]["title"])
+    centered(c, spec["subtitle"], "Inter-Medium", L["subtitle"][1], mid, Y(L["subtitle"][0]), L["cs"]["subtitle"])
+    centered(c, spec["details"], "Inter-Regular", L["details"][1], mid, Y(L["details"][0]), L["cs"]["details"])
     n = len(palette)
     total = n * L["sw"] + (n - 1) * L["sw_gap"]
     x0 = W / 2 - total / 2
@@ -176,7 +192,7 @@ def main(spec_path):
               "palette": palette, "files": {}}
 
     for size_name, (W, H) in SIZES.items():
-        L = layout(W, H, art_ratio)
+        L = layout(W, H, art_ratio, spec)
         aw, ah = L["art"][2], L["art"][3]
         need = (mm2px(aw), mm2px(ah))
         if im.width < need[0] or im.height < need[1]:

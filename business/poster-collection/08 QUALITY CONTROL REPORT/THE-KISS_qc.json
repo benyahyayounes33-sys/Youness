@@ -1,0 +1,156 @@
+{
+ "source": "Gustav Klimt, The Kiss (1907-1908), public domain (artist died 1918). Digital file: Wikimedia Commons 'The Kiss - Gustav Klimt - Google Cultural Institute.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg)",
+ "source_px": [
+  3840,
+  3853
+ ],
+ "colour": "no embedded profile - treated as sRGB",
+ "processing": "Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.",
+ "palette": [
+  "#3D362A",
+  "#7D6A36",
+  "#93854B",
+  "#9B9484",
+  "#C1A84F"
+ ],
+ "files": {
+  "THE-KISS_A5_300DPI_PRINT.pdf": {
+   "page_mm": [
+    148.0,
+    210.0
+   ],
+   "expected_mm": [
+    148,
+    210
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1415,
+    1420
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "THE-KISS_A5_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    154.0,
+    216.0
+   ],
+   "expected_mm": [
+    154,
+    216
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1415,
+    1420
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "THE-KISS_A4_300DPI_PRINT.pdf": {
+   "page_mm": [
+    210.0,
+    297.0
+   ],
+   "expected_mm": [
+    210,
+    297
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2008,
+    2015
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "THE-KISS_A4_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    216.0,
+    303.0
+   ],
+   "expected_mm": [
+    216,
+    303
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2008,
+    2015
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "THE-KISS_A3_300DPI_PRINT.pdf": {
+   "page_mm": [
+    297.0,
+    420.0
+   ],
+   "expected_mm": [
+    297,
+    420
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2840,
+    2849
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "THE-KISS_A3_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    303.0,
+    426.0
+   ],
+   "expected_mm": [
+    303,
+    426
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2840,
+    2849
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  }
+ }
+}
