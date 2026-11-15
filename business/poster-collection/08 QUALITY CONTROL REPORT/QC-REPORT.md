@@ -89,9 +89,10 @@ Every check above was read back from the finished PDFs (not assumed). Visual che
 
 | Your images | Legal route |
 |---|---|
-| Porsche / Mercedes / Viper (20 images) | Original designs of **fictional cars** with no badges or model names (designs #1–#4 in the launch plan). The brands’ official licensing is not realistic at your size 🔶. |
-| Anime (6 images) | No unlicensed fan art for sale. Make your own **original characters / universe** if you draw, or skip this category. |
-| Films and series (5 images) | **Fake film posters** for films that don’t exist (designs #5–#6), or classic films whose rights have expired. Check each one: a film’s copyright and its actors’ likeness are separate questions 🔶. |
+| Porsche / Mercedes / Viper (12 images) | Original designs of **fictional cars** with no badges or model names (designs #1–#4 in the launch plan). The brands’ official licensing is not realistic at your size 🔶. |
+| Anime (5 images) | No unlicensed fan art for sale. Make your own **original characters / universe** if you draw, or skip this category. |
+| Films, series and Venom (6 images) | **Fake film posters** for films that don’t exist (designs #5–#6), or classic films whose rights have expired. Check each one: a film’s copyright and its actors’ likeness are separate questions 🔶. |
 | Music artists (2 images) | Instruments, eras, invented tracklists (design #7). No photos of artists and no lyrics. |
 | Football (2 images) | Custom tactics board, Moroccan colours, no crests or players (design #8). |
+| Photos of people (BLUR, UNSEEN 007) | Your own photos, with written consent from the person photographed. |
 | Art (Mona Lisa) | ✅ **A “Masterpieces” series** from public-domain works (Van Gogh, Hokusai, Klimt…), built from high-resolution sources like this one. Check each artist’s date of death (life + 70 years in Morocco ✅). |
