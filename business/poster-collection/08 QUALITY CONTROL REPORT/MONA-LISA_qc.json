@@ -1,0 +1,156 @@
+{
+ "source": "Leonardo da Vinci, Mona Lisa (1503-1519), public domain. Digital file: Wikimedia Commons, 'Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg)",
+ "source_px": [
+  3840,
+  5723
+ ],
+ "colour": "no embedded profile - treated as sRGB",
+ "processing": "Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.",
+ "palette": [
+  "#1C1222",
+  "#3E2A2A",
+  "#625136",
+  "#84824E",
+  "#C1A75B"
+ ],
+ "files": {
+  "MONA-LISA_A5_300DPI_PRINT.pdf": {
+   "page_mm": [
+    148.0,
+    210.0
+   ],
+   "expected_mm": [
+    148,
+    210
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1145,
+    1706
+   ],
+   "effective_dpi": 299.9,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "MONA-LISA_A5_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    154.0,
+    216.0
+   ],
+   "expected_mm": [
+    154,
+    216
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1145,
+    1706
+   ],
+   "effective_dpi": 299.9,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "MONA-LISA_A4_300DPI_PRINT.pdf": {
+   "page_mm": [
+    210.0,
+    297.0
+   ],
+   "expected_mm": [
+    210,
+    297
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1625,
+    2421
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "MONA-LISA_A4_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    216.0,
+    303.0
+   ],
+   "expected_mm": [
+    216,
+    303
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1625,
+    2421
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "MONA-LISA_A3_300DPI_PRINT.pdf": {
+   "page_mm": [
+    297.0,
+    420.0
+   ],
+   "expected_mm": [
+    297,
+    420
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2298,
+    3424
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "MONA-LISA_A3_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    303.0,
+    426.0
+   ],
+   "expected_mm": [
+    303,
+    426
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2298,
+    3424
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  }
+ }
+}
