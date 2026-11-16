@@ -1575,7 +1575,7 @@ def build_audio():
     i0 = int((DUR - 0.6) * SR)
     fade[i0:] = np.linspace(1, 0, NA - i0)
     mix *= fade[None, :]
-    mix = true_peak_limit(mix / (np.abs(mix).max() + 1e-9) * 3.2, -3.2)
+    mix = true_peak_limit(mix / (np.abs(mix).max() + 1e-9) * 3.8, -5.0)
     mix[:, i_f1:int(T_DROP * SR)] = 0
     return mix
 
