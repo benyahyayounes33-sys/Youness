@@ -1,14 +1,14 @@
 1
 00:00:00,000 --> 00:00:02,200
-[a low hum · a thin tone draws out]
+[low hum · a thin tone rises]
 
 2
 00:00:02,400 --> 00:00:05,000
-[slow cinematic pulse · clock ticking]
+[cinematic pulse · clock ticking]
 
 3
 00:00:05,000 --> 00:00:09,800
-[whooshes · paper flicks · metal shimmer]
+[whooshes · paper flick · metal ring]
 
 4
 00:00:09,900 --> 00:00:11,600
@@ -16,19 +16,19 @@
 
 5
 00:00:11,700 --> 00:00:13,800
-[the music stops · room tone · a clock ticks]
+[music stops · a clock ticks]
 
 6
 00:00:13,800 --> 00:00:15,400
-[a poster is pressed onto the wall]
+[poster pressed onto the wall]
 
 7
 00:00:15,400 --> 00:00:19,600
-[music builds · posters tap into place]
+[music builds · posters tap in]
 
 8
 00:00:19,800 --> 00:00:21,600
-[the music swells]
+[music swells]
 
 9
 00:00:21,600 --> 00:00:22,800
@@ -36,4 +36,4 @@
 
 10
 00:00:23,000 --> 00:00:28,200
-[the music resolves · one last tick]
+[music resolves · one last tick]

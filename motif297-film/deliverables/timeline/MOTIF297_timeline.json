@@ -263,17 +263,17 @@
     {
       "f_in": 0,
       "f_out": 66,
-      "text": "[a low hum \u00b7 a thin tone draws out]"
+      "text": "[low hum \u00b7 a thin tone rises]"
     },
     {
       "f_in": 72,
       "f_out": 150,
-      "text": "[slow cinematic pulse \u00b7 clock ticking]"
+      "text": "[cinematic pulse \u00b7 clock ticking]"
     },
     {
       "f_in": 150,
       "f_out": 294,
-      "text": "[whooshes \u00b7 paper flicks \u00b7 metal shimmer]"
+      "text": "[whooshes \u00b7 paper flick \u00b7 metal ring]"
     },
     {
       "f_in": 297,
@@ -283,22 +283,22 @@
     {
       "f_in": 351,
       "f_out": 414,
-      "text": "[the music stops \u00b7 room tone \u00b7 a clock ticks]"
+      "text": "[music stops \u00b7 a clock ticks]"
     },
     {
       "f_in": 414,
       "f_out": 462,
-      "text": "[a poster is pressed onto the wall]"
+      "text": "[poster pressed onto the wall]"
     },
     {
       "f_in": 462,
       "f_out": 588,
-      "text": "[music builds \u00b7 posters tap into place]"
+      "text": "[music builds \u00b7 posters tap in]"
     },
     {
       "f_in": 594,
       "f_out": 648,
-      "text": "[the music swells]"
+      "text": "[music swells]"
     },
     {
       "f_in": 648,
@@ -308,7 +308,7 @@
     {
       "f_in": 690,
       "f_out": 846,
-      "text": "[the music resolves \u00b7 one last tick]"
+      "text": "[music resolves \u00b7 one last tick]"
     }
   ],
   "poster_landing_frames": {
