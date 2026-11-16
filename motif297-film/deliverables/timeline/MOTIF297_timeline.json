@@ -1,0 +1,324 @@
+{
+  "title": "MOTIF 297 \u2014 Walls With a Point of View",
+  "fps": 30,
+  "resolution": [
+    1080,
+    1920
+  ],
+  "duration_frames": 846,
+  "duration_seconds": 28.2,
+  "tempo_bpm": 100,
+  "frames_per_beat": 18,
+  "shots": [
+    {
+      "n": 1,
+      "act": "1 HOOK",
+      "f_in": 0,
+      "f_out": 72,
+      "source": "porsche_gt3rs_black.jpg",
+      "picture": "Black frame. A Signal Rust hairline draws out from the centre (tips glowing), widens and graphic-matches into the GT3 RS taillight as the car lights up around it. Slow macro orbit, focus falls off across the body.",
+      "transition_out": "Light transition: the taillight glow blooms to warm white (exposure ramp + bloom).",
+      "sound": "Sub swell + glass line tone that follows the draw; first hit on frame 18; dark Dm drone; air swell into the white.",
+      "tc_in": "00:00:00:00",
+      "tc_out": "00:00:02:12",
+      "seconds": 2.4
+    },
+    {
+      "n": 2,
+      "act": "2 CRAFT",
+      "f_in": 72,
+      "f_out": 117,
+      "source": "clock_dont_waste_time.jpg",
+      "picture": "White resolves into the melting clock. Camera tilts down the ink drip; focus plane runs along the drip, the type falls soft. Tag: ART.",
+      "transition_out": "Motion-matched tilt: accelerates down (motion blur) into the next shot.",
+      "sound": "Pulse enters at 100 BPM, clock ticks on 8ths (tick/tock); downward whoosh; ink 'plip' on the cut.",
+      "tc_in": "00:00:02:12",
+      "tc_out": "00:00:03:27",
+      "seconds": 1.5
+    },
+    {
+      "n": 3,
+      "act": "2 CRAFT",
+      "f_in": 117,
+      "f_out": 153,
+      "source": "toyota_supra_mk5.jpg",
+      "picture": "Downward move lands on the brush-lettering ink drips. Tag: AUTOMOTIVE.",
+      "transition_out": "Whip-pan right (motion blur).",
+      "sound": "Brush swish; whoosh L->R on the whip.",
+      "tc_in": "00:00:03:27",
+      "tc_out": "00:00:05:03",
+      "seconds": 1.2
+    },
+    {
+      "n": 4,
+      "act": "2 CRAFT",
+      "f_in": 153,
+      "f_out": 189,
+      "source": "cr7.jpg",
+      "picture": "Whip lands on the CR letterforms; the figure below is thrown out of focus. Tag: SPORT.",
+      "transition_out": "Graphic match cut, type to type, on the beat.",
+      "sound": "Low landing thud; paper flick on the cut.",
+      "tc_in": "00:00:05:03",
+      "tc_out": "00:00:06:09",
+      "seconds": 1.2
+    },
+    {
+      "n": 5,
+      "act": "2 CRAFT",
+      "f_in": 189,
+      "f_out": 225,
+      "source": "peaky_blinders.jpg",
+      "picture": "Slow track across the editorial title type. Tag: CINEMA. Camera rolls into a spin.",
+      "transition_out": "Spin (roll) transition, continued in the next shot.",
+      "sound": "Rotational whoosh with flutter.",
+      "tc_in": "00:00:06:09",
+      "tc_out": "00:00:07:15",
+      "seconds": 1.2
+    },
+    {
+      "n": 6,
+      "act": "2 CRAFT",
+      "f_in": 225,
+      "f_out": 261,
+      "source": "porsche_911gt3_blue.jpg",
+      "picture": "The spin resolves on the wheel; push through the hub.",
+      "transition_out": "Zoom-through (radial motion blur).",
+      "sound": "Metallic shimmer (inharmonic partials); rising whoosh + air thump.",
+      "tc_in": "00:00:07:15",
+      "tc_out": "00:00:08:21",
+      "seconds": 1.2
+    },
+    {
+      "n": 7,
+      "act": "2 CRAFT",
+      "f_in": 261,
+      "f_out": 297,
+      "source": "porsche_gt3rs_blue_rear.jpg",
+      "picture": "Push lands on the rear three-quarter and its reflection.",
+      "transition_out": "Light transition to Warm Paper.",
+      "sound": "Air swell into white.",
+      "tc_in": "00:00:08:21",
+      "tc_out": "00:00:09:27",
+      "seconds": 1.2
+    },
+    {
+      "n": 8,
+      "act": "2 CRAFT",
+      "f_in": 297,
+      "f_out": 351,
+      "source": "(graphic)",
+      "picture": "Warm Paper. An A4 outline draws itself; rust dimension lines extend while counters roll to 210 and 297 mm. 'A4 ADHESIVE ART POSTERS'. The A4 frame becomes a window onto the wall.",
+      "transition_out": "Masking transition + zoom-through the A4 window.",
+      "sound": "Pen scratch; mechanical counter clicks (decelerating); deep whoosh. Music cuts at the window.",
+      "tc_in": "00:00:09:27",
+      "tc_out": "00:00:11:21",
+      "seconds": 1.8
+    },
+    {
+      "n": 9,
+      "act": "3 TRANSFORMATION",
+      "f_in": 351,
+      "f_out": 414,
+      "source": "(virtual wall)",
+      "picture": "A blank wall in window light. 'A BLANK WALL / SAYS NOTHING.' Camera begins to push in.",
+      "transition_out": "Continuous push-in.",
+      "sound": "Strategic silence: room tone and a single clock ticking in the space.",
+      "tc_in": "00:00:11:21",
+      "tc_out": "00:00:13:24",
+      "seconds": 2.1
+    },
+    {
+      "n": 10,
+      "act": "3 TRANSFORMATION",
+      "f_in": 414,
+      "f_out": 468,
+      "source": "porsche_gt3rs_black.jpg",
+      "picture": "The GT3 RS poster arrives top-edge first and is pressed flat (shadow tightens to contact). 'SAY SOMETHING.'",
+      "transition_out": "Continuous pull-back.",
+      "sound": "Paper flutter; top-edge tap; PRESS on the beat (music returns); smoothing swipe.",
+      "tc_in": "00:00:13:24",
+      "tc_out": "00:00:15:18",
+      "seconds": 1.8
+    },
+    {
+      "n": 11,
+      "act": "3 TRANSFORMATION",
+      "f_in": 468,
+      "f_out": 594,
+      "source": "all seven posters",
+      "picture": "Pull back as six more posters land on the beat (accelerating), forming a 2-3-2 gallery wall; window light drifts across.",
+      "transition_out": "Hard cut on the musical hit after a 6-frame silence.",
+      "sound": "Each poster: flutter + press; 16th ostinato, strings crescendo, riser, accelerating ticks, reverse cymbal, 0.2 s gap.",
+      "tc_in": "00:00:15:18",
+      "tc_out": "00:00:19:24",
+      "seconds": 4.2
+    },
+    {
+      "n": 12,
+      "act": "4 BRAND",
+      "f_in": 594,
+      "f_out": 666,
+      "source": "all seven posters",
+      "picture": "HERO: perspective dolly along the finished wall, shallow focus, sun moving. A dark foreground pillar passes the lens.",
+      "transition_out": "Foreground object wipe to Obsidian.",
+      "sound": "Reveal hit: sub boom + Fmaj9 stab; deep L->R whoosh into the wipe.",
+      "tc_in": "00:00:19:24",
+      "tc_out": "00:00:22:06",
+      "seconds": 2.4
+    },
+    {
+      "n": 13,
+      "act": "4 BRAND",
+      "f_in": 666,
+      "f_out": 846,
+      "source": "(graphic)",
+      "picture": "Obsidian. A4 outline draws; rust 297 mm dimension line; MOTIF / 297 rises letter by letter; 'WALLS WITH A POINT OF VIEW' + the rust full stop. Slow ambient push.",
+      "transition_out": "End (holds for loop).",
+      "sound": "Line tone (callback to the hook); logo hit + Dm(add9) bells; final single clock tick on the full stop; music resolves.",
+      "tc_in": "00:00:22:06",
+      "tc_out": "00:00:28:06",
+      "seconds": 6.0
+    }
+  ],
+  "on_screen_text": [
+    {
+      "f_in": 82,
+      "f_out": 113,
+      "tc_in": "00:00:02:22",
+      "tc_out": "00:00:03:23",
+      "text": "Tag: ART (placeholder theme \u2014 replace with real collection name)"
+    },
+    {
+      "f_in": 125,
+      "f_out": 151,
+      "tc_in": "00:00:04:05",
+      "tc_out": "00:00:05:01",
+      "text": "Tag: AUTOMOTIVE (placeholder)"
+    },
+    {
+      "f_in": 162,
+      "f_out": 190,
+      "tc_in": "00:00:05:12",
+      "tc_out": "00:00:06:10",
+      "text": "Tag: SPORT (placeholder)"
+    },
+    {
+      "f_in": 197,
+      "f_out": 221,
+      "tc_in": "00:00:06:17",
+      "tc_out": "00:00:07:11",
+      "text": "Tag: CINEMA (placeholder)"
+    },
+    {
+      "f_in": 309,
+      "f_out": 345,
+      "tc_in": "00:00:10:09",
+      "tc_out": "00:00:11:15",
+      "text": "210 / 297 MM counters"
+    },
+    {
+      "f_in": 322,
+      "f_out": 345,
+      "tc_in": "00:00:10:22",
+      "tc_out": "00:00:11:15",
+      "text": "A4 ADHESIVE ART POSTERS"
+    },
+    {
+      "f_in": 360,
+      "f_out": 409,
+      "tc_in": "00:00:12:00",
+      "tc_out": "00:00:13:19",
+      "text": "A BLANK WALL / SAYS NOTHING."
+    },
+    {
+      "f_in": 441,
+      "f_out": 473,
+      "tc_in": "00:00:14:21",
+      "tc_out": "00:00:15:23",
+      "text": "SAY SOMETHING."
+    },
+    {
+      "f_in": 702,
+      "f_out": 846,
+      "tc_in": "00:00:23:12",
+      "tc_out": "00:00:28:06",
+      "text": "MOTIF / 297 (typographic wordmark \u2014 placeholder until the official logo file is supplied)"
+    },
+    {
+      "f_in": 712,
+      "f_out": 846,
+      "tc_in": "00:00:23:22",
+      "tc_out": "00:00:28:06",
+      "text": "297 MM (dimension label)"
+    },
+    {
+      "f_in": 738,
+      "f_out": 846,
+      "tc_in": "00:00:24:18",
+      "tc_out": "00:00:28:06",
+      "text": "WALLS WITH A POINT OF VIEW."
+    }
+  ],
+  "captions_sdh": [
+    {
+      "f_in": 0,
+      "f_out": 66,
+      "text": "[a low hum \u00b7 a thin tone draws out]"
+    },
+    {
+      "f_in": 72,
+      "f_out": 150,
+      "text": "[slow cinematic pulse \u00b7 clock ticking]"
+    },
+    {
+      "f_in": 150,
+      "f_out": 294,
+      "text": "[whooshes \u00b7 paper flicks \u00b7 metal shimmer]"
+    },
+    {
+      "f_in": 297,
+      "f_out": 348,
+      "text": "[mechanical counter clicks]"
+    },
+    {
+      "f_in": 351,
+      "f_out": 414,
+      "text": "[the music stops \u00b7 room tone \u00b7 a clock ticks]"
+    },
+    {
+      "f_in": 414,
+      "f_out": 462,
+      "text": "[a poster is pressed onto the wall]"
+    },
+    {
+      "f_in": 462,
+      "f_out": 588,
+      "text": "[music builds \u00b7 posters tap into place]"
+    },
+    {
+      "f_in": 594,
+      "f_out": 648,
+      "text": "[the music swells]"
+    },
+    {
+      "f_in": 648,
+      "f_out": 684,
+      "text": "[deep whoosh]"
+    },
+    {
+      "f_in": 690,
+      "f_out": 846,
+      "text": "[the music resolves \u00b7 one last tick]"
+    }
+  ],
+  "poster_landing_frames": {
+    "gt3black": 432,
+    "clock": 468,
+    "supra": 486,
+    "rsblue": 504,
+    "gt3blue": 513,
+    "cr7": 522,
+    "peaky": 531
+  },
+  "project": "Procedural project: src/film.py (picture), src/audio.py (score + SFX), src/engine.py. Re-render with `python3 src/film.py && python3 src/audio.py && python3 src/package.py`."
+}
