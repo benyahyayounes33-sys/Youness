@@ -530,14 +530,14 @@ def label(img, f, f_in, f_out, text, y=1352, x=96):
     if f < f_in or f > f_out + 7:
         return
     op = 1 - ramp(f, f_out, f_out + 6, e_in_cubic)
-    size, track, h = 21, 0.34, 40
+    size, track, h = 24, 0.32, 46
     tw = text_width(text, size, 500, track)
-    full = 16 + 9 + 13 + tw + 20
+    full = 18 + 10 + 14 + tw + 22
     tb = ramp(f, f_in, f_in + 10)
     rect(img, x, y - h / 2, x + full * tb, y + h / 2, PAPER, 0.95 * op)
-    rect(img, x + 16, y - 4.5, x + 25, y + 4.5, RUST, op * ramp(f, f_in + 4, f_in + 9))
+    rect(img, x + 18, y - 5, x + 28, y + 5, RUST, op * ramp(f, f_in + 4, f_in + 9))
     t = ramp(f, f_in + 5, f_in + 15)
-    draw_text(img, text, size, 500, track, OBSIDIAN, x + 38, y, opacity=op * min(1, t * 1.4),
+    draw_text(img, text, size, 500, track, OBSIDIAN, x + 42, y, opacity=op * min(1, t * 1.4),
               dy=(1 - t) * 20, clip=(y - h / 2 + 2, y + h / 2 - 2))
 
 
@@ -570,15 +570,15 @@ def text_layer(img, f):
         gap = 54 * z
         cnt = ramp(f, 309, 331, e_out_expo)
         op = ramp(f, 309, 314, e_lin) * (1 - ramp(f, 339, 345, e_in_cubic))
-        digits(img, 210 * cnt, 3, cx - 26 * z, cyz - h / 2 - gap - 34 * z, 30 * z, OBSIDIAN, op)
-        draw_text(img, "MM", 17 * z, 500, 0.2, OBSIDIAN, cx + 30 * z, cyz - h / 2 - gap - 34 * z, opacity=op * 0.7)
-        text_rot(img, "MM", int(17 * z), 500, 0.2, OBSIDIAN, cx + w / 2 + gap + 34 * z, cyz - 58 * z, op * 0.7)
-        digits_rot(img, 297 * cnt, cx + w / 2 + gap + 34 * z, cyz + 22 * z, int(30 * z), OBSIDIAN, op)
+        digits(img, 210 * cnt, 3, cx - 28 * z, cyz - h / 2 - gap - 38 * z, int(36 * z), OBSIDIAN, op)
+        draw_text(img, "MM", int(19 * z), 500, 0.2, OBSIDIAN, cx + 36 * z, cyz - h / 2 - gap - 38 * z, opacity=op * 0.7)
+        text_rot(img, "MM", int(19 * z), 500, 0.2, OBSIDIAN, cx + w / 2 + gap + 38 * z, cyz - 66 * z, op * 0.7)
+        digits_rot(img, 297 * cnt, cx + w / 2 + gap + 38 * z, cyz + 24 * z, int(36 * z), OBSIDIAN, op)
         lt = ramp(f, 322, 334)
         lop = lt * (1 - ramp(f, 339, 345, e_in_cubic))
-        draw_text(img, "A4 ADHESIVE ART POSTERS", int(round(24 * z)), 500, 0.34, OBSIDIAN, 540,
-                  cyz + h / 2 + 74 * z, anchor="center", opacity=lop * 0.85, dy=(1 - lt) * 16,
-                  clip=(cyz + h / 2 + 74 * z - 16 * z, cyz + h / 2 + 74 * z + 16 * z))
+        draw_text(img, "A4 ADHESIVE ART POSTERS", int(round(30 * z)), 500, 0.30, OBSIDIAN, 540,
+                  cyz + h / 2 + 80 * z, anchor="center", opacity=lop * 0.9, dy=(1 - lt) * 20,
+                  clip=(cyz + h / 2 + 80 * z - 20 * z, cyz + h / 2 + 80 * z + 20 * z))
     # the blank wall
     headline(img, f, [("A", 360), ("BLANK", 363), ("WALL", 366)], 900, 68, 402, OBSIDIAN)
     headline(img, f, [("SAYS", 378), ("NOTHING.", 382)], 994, 68, 402, OBSIDIAN)
@@ -625,16 +625,16 @@ def digits_rot(img, value, cx, cy, size, color, op):
 
 
 CAPTIONS = [
-    (0, 66, "[a low hum · a thin tone draws out]"),
-    (72, 150, "[slow cinematic pulse · clock ticking]"),
-    (150, 294, "[whooshes · paper flicks · metal shimmer]"),
+    (0, 66, "[low hum · a thin tone rises]"),
+    (72, 150, "[cinematic pulse · clock ticking]"),
+    (150, 294, "[whooshes · paper flick · metal ring]"),
     (297, 348, "[mechanical counter clicks]"),
-    (351, 414, "[the music stops · room tone · a clock ticks]"),
-    (414, 462, "[a poster is pressed onto the wall]"),
-    (462, 588, "[music builds · posters tap into place]"),
-    (594, 648, "[the music swells]"),
+    (351, 414, "[music stops · a clock ticks]"),
+    (414, 462, "[poster pressed onto the wall]"),
+    (462, 588, "[music builds · posters tap in]"),
+    (594, 648, "[music swells]"),
     (648, 684, "[deep whoosh]"),
-    (690, 846, "[the music resolves · one last tick]"),
+    (690, 846, "[music resolves · one last tick]"),
 ]
 
 
@@ -642,10 +642,10 @@ def caption_layer(img, f):
     for f0, f1, txt in CAPTIONS:
         if f0 <= f < f1:
             op = ramp(f, f0, f0 + 5, e_lin) * (1 - ramp(f, f1 - 5, f1, e_lin))
-            size = 27
+            size = 38
             tw = text_width(txt, size, 400, 0.02)
-            y = 1500
-            rect(img, 540 - tw / 2 - 22, y - 26, 540 + tw / 2 + 22, y + 26, OBSIDIAN, 0.70 * op)
+            y = 1490
+            rect(img, 540 - tw / 2 - 26, y - 34, 540 + tw / 2 + 26, y + 34, OBSIDIAN, 0.72 * op)
             draw_text(img, txt, size, 400, 0.02, PAPER, 540, y, anchor="center", opacity=op)
 
 # ---------------------------------------------------------------- render ----

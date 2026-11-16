@@ -116,6 +116,8 @@ Motion blur is real sub-frame sampling (180° shutter, up to 14 samples), never 
 - The window light was huge and harsh and drowned the posters. It became smaller and softer (6 cm penumbra), and the wall was brightened toward Warm Paper.
 - The hero poster's entrance ghosted, because motion blur followed only the camera. It now samples the poster's motion too.
 - The mix had no arc (the craft section was as loud as the reveal) and too much sub. Act 2 was pulled down about 5 dB, the low end tightened, and a 4 Hz bell beat removed.
+- The full-video review showed captions (27 px), tags and the product line "A4 ADHESIVE ART POSTERS" would read at under 10 pt on a phone. They were enlarged (captions 38 px, product line 30 px) and the caption wording shortened to fit the safe area.
+- The wall read as dull mid-grey. It was moved toward Warm Paper so the prints, not the wall, carry the colour.
 
 ---
 
