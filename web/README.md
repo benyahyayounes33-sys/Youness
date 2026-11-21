@@ -62,3 +62,9 @@ Production build with type checking; Playwright on desktop (1440×900) and iPhon
 cart math (3 × 39 + 39 = 156 MAD), checkout validation (4 field errors, invalid phone rejected), delivery fee by city
 (Marrakech 35 → 191 MAD), free delivery from 250 MAD, WhatsApp message content (phone in +212 format, items, fee, total),
 cart cleared after preparing the order, tracking lookup, Arabic RTL layout, no console errors.
+
+## Screenshots
+
+![Hero](docs/desktop-hero.jpg)
+![Shop by vibe](docs/desktop-vibes.jpg)
+![Mobile](docs/mobile-hero.jpg)
