@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-coal: #131316;
+  --color-graphite: #1c1c20;
+  --color-smoke: #2a2a30;
+  --color-paper: #f2efe9;
+  --color-bone: #e4dfd5;
+  --color-silver: #a8aaae;
+  --color-mist: #cfd0d3;
+  --color-accent: #ff3b30;
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-arabic: "IBM Plex Sans Arabic", "Inter Variable", system-ui, sans-serif;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  [dir="rtl"] body { font-family: var(--font-arabic); }
+  ::selection { background: var(--color-accent); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  input, select, textarea { font: inherit; }
+}
+
+/* film grain over everything, never intercepts clicks */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+@media (prefers-reduced-motion: no-preference) {
+  .grain::after { animation: grain 0.9s steps(4) infinite; }
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(0, 0); }
+}
+
+@utility text-outline {
+  -webkit-text-stroke: 1.5px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+@utility text-outline-thin {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+@utility hairline {
+  border-color: color-mix(in oklab, currentColor 14%, transparent);
+}
+
+/* marquee */
+.marquee { display: flex; width: max-content; }
+@media (prefers-reduced-motion: no-preference) {
+  .marquee { animation: marquee 38s linear infinite; }
+  [dir="rtl"] .marquee { animation-name: marquee-rtl; }
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee-rtl { to { transform: translateX(50%); } }
+
+/* adhesive "peel" corner on product cards */
+.peel { position: absolute; inset-inline-end: 0; bottom: 0; width: 0; height: 0; transition: width 0.45s var(--ease-expo), height 0.45s var(--ease-expo); z-index: 3; pointer-events: none; }
+.peel::before { content: ""; position: absolute; inset: 0; background: linear-gradient(315deg, transparent 50%, #d9d6cf 50%, #f4f1ec 62%, #bdb9b1 100%); box-shadow: -6px -6px 14px rgba(0, 0, 0, 0.35); }
+.peel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(315deg, var(--color-ink) 50%, transparent 50%); }
+[dir="rtl"] .peel::before { background: linear-gradient(45deg, transparent 50%, #d9d6cf 50%, #f4f1ec 62%, #bdb9b1 100%); box-shadow: 6px -6px 14px rgba(0, 0, 0, 0.35); }
+[dir="rtl"] .peel::after { background: linear-gradient(45deg, var(--color-ink) 50%, transparent 50%); }
+@media (hover: hover) { .group:hover .peel { width: 64px; height: 64px; } }
+
+/* vibe personalities */
+.vibe-cars { background: repeating-linear-gradient(115deg, transparent 0 26px, rgb(255 255 255 / 0.035) 26px 27px), radial-gradient(120% 90% at 85% 10%, #26262c 0%, #0b0b0d 60%); }
+.vibe-music { background: repeating-radial-gradient(circle at 78% 55%, #1a1820 0 2px, #141218 2px 5px), #141218; }
+.vibe-movies { background: #0e0e10; }
+.vibe-movies::before, .vibe-movies::after { content: ""; position: absolute; inset-inline: 0; height: 22px; background: repeating-linear-gradient(90deg, transparent 0 14px, rgb(242 239 233 / 0.14) 14px 30px) center / 100% 10px no-repeat, #070708; z-index: 1; }
+.vibe-movies::before { top: 0; } .vibe-movies::after { bottom: 0; }
+.vibe-football { background: linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px) 0 50% / 100% 50%, #0f1913; }
+.vibe-anime { background: radial-gradient(circle, rgb(255 59 48 / 0.85) 1.3px, transparent 1.6px) 0 0 / 11px 11px, #f2efe9; color: #0b0b0d; }
+.vibe-minimal { background: linear-gradient(90deg, rgb(11 11 13 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, linear-gradient(rgb(11 11 13 / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, #e4dfd5; color: #0b0b0d; }
+.vibe-motivational { background: #ff3b30; color: #0b0b0d; }
+
+/* range input used by the before/after slider (visually hidden but focusable) */
+.sr-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+
+/* Arabic has no Anton glyphs: display type switches to IBM Plex Sans Arabic, except Latin brand lines (dir="ltr") */
+[dir="rtl"] .font-display:not([dir="ltr"]) { font-family: var(--font-arabic); font-weight: 700; letter-spacing: 0; }
+[dir="rtl"] .font-serif { font-family: var(--font-arabic); font-style: normal; }
