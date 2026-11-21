@@ -1,0 +1,383 @@
+import { STORE } from "./config";
+
+const fr = {
+  dir: "ltr" as "ltr" | "rtl",
+  currency: "MAD",
+  announce: "Boutique de démonstration — produits et prix d'exemple · Paiement à la livraison au Maroc",
+  nav: {
+    shop: "Boutique", vibes: "Vibes", best: "Best-sellers", about: "La marque", search: "Rechercher",
+    cart: "Panier", favorites: "Favoris", menu: "Menu", close: "Fermer", switchTo: "العربية", switchShort: "ع",
+    track: "Suivre ma commande", contact: "Contact",
+  },
+  hero: {
+    eyebrow: "N°01 — Collection hiver 2026 · Posters A4 adhésifs",
+    subtitle: "Transformez vos espaces ordinaires en quelque chose d'extraordinaire.",
+    cta1: "Explorer la collection", cta2: "Meilleures ventes",
+    stats: ["designs", "A4 · 21 × 29,7 cm", "Paiement à la livraison"], scroll: "Défiler",
+  },
+  marquee: ["Posters A4 adhésifs", "Paiement à la livraison", "Commande via WhatsApp", "Designs sélectionnés par vibe", "Fait pour les murs marocains"],
+  vibes: {
+    eyebrow: "Shop by vibe", title: "Choisis ta vibe.",
+    sub: "Sept univers, sept personnalités. Trouve celui qui ressemble à ta chambre — ou à celle que tu veux.",
+    designs: (n: number) => `${n} designs`, explore: "Explorer",
+  },
+  featured: {
+    eyebrow: "La sélection", title: "Sur les murs cette semaine.",
+    tabs: { best: "Best-sellers", new: "Nouveautés", limited: "Éditions limitées" }, viewAll: "Voir toute la boutique",
+  },
+  product: {
+    add: "Ajouter au panier", added: "Ajouté ✓", quick: "Aperçu rapide", fav: "Ajouter aux favoris", unfav: "Retirer des favoris",
+    format: "Format", poster: "Poster adhésif A4 — 21 × 29,7 cm", sticker: "Sticker découpé — dimensions à confirmer",
+    qty: "Quantité", details: "Détails", apply: "Pose",
+    applyText: "Nettoyez et séchez le mur, décollez le dos par un coin, puis posez le poster en lissant du centre vers les bords.",
+    delivery: "Livraison & paiement",
+    deliveryText: `Livraison au Maroc, frais selon la ville (offerte dès ${STORE.freeShippingFrom} MAD). Vous payez en espèces à la réception.`,
+    related: "Vous aimerez aussi", viewFull: "Voir la fiche complète",
+    badge: { best: "Best-seller", new: "Nouveau", limited: "Édition limitée" },
+    original: "Design original ONELINE", demo: "Produit de démonstration (prix et visuel d'exemple)", collection: "Collection", type: "Type", sticker1: "Sticker", poster1: "Poster A4",
+    orderNow: "Commander maintenant", back: "Retour à la boutique", notFound: "Ce poster n'existe pas (ou plus).",
+  },
+  room: {
+    eyebrow: "Avant / Après", title: "Un mur. Six posters. Une autre chambre.",
+    sub: "Faites glisser pour voir la différence. Aucun cadre, aucun outil : des posters A4 adhésifs.",
+    before: "Avant", after: "Après", hint: "Glissez pour comparer", label: "Comparer la pièce avant et après",
+  },
+  why: {
+    eyebrow: "Pourquoi nos posters ?", title: "Simple à commander. Facile à poser. Pensé pour ton mur.",
+    items: [
+      { t: "Format A4", d: "21 × 29,7 cm : la taille idéale pour composer un mur, une porte ou un coin bureau." },
+      { t: "Adhésif", d: "Pas de cadre ni de punaises : le poster se colle directement." },
+      { t: "Paiement à la livraison", d: "Vous payez en espèces quand vous recevez votre colis." },
+      { t: "Commande WhatsApp", d: "Votre commande arrive chez nous sur WhatsApp, on vous répond pour confirmer." },
+      { t: "Livraison au Maroc", d: "Frais affichés selon votre ville avant de commander, sans surprise." },
+      { t: "Designs sélectionnés", d: "Des collections pensées par vibe, et des designs originaux ONELINE." },
+    ],
+  },
+  how: {
+    eyebrow: "Comment ça marche", title: "Trois étapes. Une minute.",
+    steps: [
+      { t: "Choisis tes posters", d: "Explore par vibe, ajoute au panier, compose ton mur." },
+      { t: "Commande sur WhatsApp", d: "Nom, téléphone, ville, adresse : on prépare le message pour toi." },
+      { t: "Paie à la livraison", d: "On confirme par WhatsApp, tu paies en espèces à la réception." },
+    ],
+  },
+  social: {
+    eyebrow: "@oneline.ma", title: "Vos murs, en vrai.",
+    sub: "Partagez votre mur avec #ONELINEwall — vos photos apparaîtront ici.",
+    placeholder: "Emplacement photo client", reviewsTitle: "Ce que vous en dites",
+    reviewExample: "Exemple — à remplacer par un vrai avis",
+    reviews: [
+      { text: "Emplacement pour un avis client réel : qualité du poster, rapidité de livraison, rendu sur le mur.", who: "Client·e · Casablanca" },
+      { text: "Emplacement pour un avis client réel : facilité de commande par WhatsApp et paiement à la livraison.", who: "Client·e · Rabat" },
+      { text: "Emplacement pour un avis client réel : photo de la chambre avant / après, design préféré.", who: "Client·e · Marrakech" },
+    ],
+  },
+  cta: { title: "Colle ton monde.", sub: "Commence par un poster. Finis avec un mur qui te ressemble.", button: "Composer mon mur" },
+  footer: {
+    shop: "Boutique", help: "Aide", legal: "Légal", follow: "Suivre",
+    links: {
+      all: "Tous les posters", best: "Best-sellers", stickers: "Stickers", faq: "FAQ", shipping: "Livraison & retours",
+      track: "Suivi de commande", contact: "Contact", privacy: "Confidentialité", terms: "Conditions générales", about: "La marque",
+    },
+    delivery: "Livraison partout où notre transporteur dessert · Paiement à la livraison",
+    demo: "Site de démonstration : produits, prix et coordonnées d'exemple.", rights: "Tous droits réservés.",
+  },
+  shop: {
+    title: "La boutique", sub: "Tous nos posters A4 adhésifs et stickers, à filtrer par vibe.",
+    search: "Rechercher un poster…", all: "Tout",
+    type: { label: "Type", all: "Tous", poster: "Posters", sticker: "Stickers" },
+    sort: { label: "Trier", popular: "Popularité", priceAsc: "Prix croissant", priceDesc: "Prix décroissant", newest: "Nouveautés", name: "Nom A–Z" },
+    results: (n: number) => (n === 1 ? "1 design" : `${n} designs`),
+    empty: "Aucun poster ne correspond à votre recherche.", reset: "Réinitialiser les filtres", favOnly: "Mes favoris",
+  },
+  cart: {
+    title: "Ton panier", empty: "Ton panier est vide.", emptyCta: "Découvrir les posters", subtotal: "Sous-total",
+    deliveryNote: "Frais de livraison calculés selon ta ville à l'étape suivante.", checkout: "Passer la commande",
+    view: "Voir le panier", remove: "Retirer", continue: "Continuer mes achats", items: (n: number) => (n === 1 ? "1 article" : `${n} articles`),
+    freeLeft: (m: string) => `Plus que ${m} pour la livraison offerte`, freeReached: "Livraison offerte débloquée ✓",
+  },
+  checkout: {
+    title: "Commande", sub: "Paiement à la livraison. Confirmation par WhatsApp.",
+    contact: "Vos coordonnées", name: "Nom complet", phone: "Téléphone", phoneHint: "Ex. 06 12 34 56 78",
+    delivery: "Livraison", city: "Ville", chooseCity: "Choisir votre ville", otherCity: "Autre ville…",
+    otherCityName: "Nom de votre ville", address: "Adresse complète", addressHint: "Quartier, rue, numéro, immeuble, repère…",
+    note: "Note (facultatif)", notePh: "Horaire préféré, précisions…", summary: "Récapitulatif", subtotal: "Sous-total",
+    deliveryFee: "Livraison", free: "Offerte", total: "Total à payer", payment: "Paiement", cod: "Paiement à la livraison (espèces)",
+    codHint: "Vous payez au livreur à la réception du colis.", submit: "Préparer ma commande WhatsApp",
+    chooseCityFirst: "selon la ville", eta: (e: string) => `Délai indicatif : ${e}`,
+    errors: {
+      name: "Indiquez votre nom (3 caractères minimum).", phone: "Numéro marocain invalide (ex. 06 12 34 56 78).",
+      city: "Choisissez votre ville.", address: "Adresse trop courte : quartier, rue, numéro…", empty: "Votre panier est vide.",
+    },
+    honest: "Rien n'est enregistré tant que vous n'avez pas envoyé le message WhatsApp. Votre commande est confirmée quand nous vous répondons.",
+  },
+  order: {
+    title: "Votre commande est prête.", status: "Pas encore envoyée",
+    lead: "Dernière étape : envoyez-la-nous sur WhatsApp. Elle sera confirmée quand nous vous répondrons.",
+    send: "Envoyer sur WhatsApp", copy: "Copier le message", copied: "Message copié ✓", ref: "Référence",
+    local: "Une copie est gardée sur cet appareil uniquement, pour le suivi.", missing: "Commande introuvable sur cet appareil.",
+    backShop: "Retour à la boutique", details: "Détails", preview: "Aperçu du message",
+  },
+  track: {
+    title: "Suivre ma commande", sub: "Entrez votre référence (ex. OL-261121-AB12) et votre téléphone.",
+    ref: "Référence", phone: "Téléphone", search: "Rechercher", notFound: "Aucune commande trouvée sur cet appareil avec ces informations.",
+    honest: "Le suivi en ligne en temps réel nécessite un serveur (voir README). En attendant, demandez le statut sur WhatsApp.",
+    ask: "Demander le statut sur WhatsApp", device: "Commandes préparées sur cet appareil",
+    steps: ["Préparée", "Confirmée par WhatsApp", "Expédiée", "Livrée"], unknown: "Statut à confirmer par WhatsApp",
+    askMsg: (ref: string) => `Bonjour ${STORE.name}, je voudrais connaître le statut de ma commande ${ref}.`,
+  },
+  common: { backHome: "Retour à l'accueil", notFoundTitle: "Ce mur est encore vide.", notFoundSub: "La page demandée n'existe pas.", loading: "Chargement", demo: "Démo" },
+  pages: {
+    about: {
+      eyebrow: "La marque", title: "On ne vend pas des posters. On vend des murs qui parlent.",
+      paras: [
+        "ONELINE est née d'une idée simple : un mur vide ne dit rien. Un mur composé raconte qui tu es — tes voitures, tes films, tes héros, ta musique, tes mots.",
+        "Nos posters A4 adhésifs sont pensés pour les chambres d'étudiants, les coins gaming, les bureaux et toutes les pièces qui méritent une personnalité. Pas de cadre, pas d'outil.",
+        "Chaque collection est sélectionnée par vibe, et nos designs originaux sont créés pour le Maroc d'aujourd'hui : direct, fier, créatif.",
+      ],
+      values: [{ t: "Curation", d: "Moins, mais mieux choisi." }, { t: "Accessible", d: "Des prix clairs en dirhams." }, { t: "Proche", d: "Une vraie personne sur WhatsApp." }],
+    },
+    contact: {
+      eyebrow: "Contact", title: "Parlons de ton mur.", sub: "Le plus rapide : WhatsApp. Nous répondons aux heures d'ouverture.",
+      whatsapp: "Écrire sur WhatsApp", email: "E-mail", social: "Réseaux", formTitle: "Envoyer un message",
+      name: "Nom", message: "Message", send: "Envoyer via WhatsApp",
+      honest: "Ce formulaire prépare un message WhatsApp : rien n'est envoyé à un serveur.",
+    },
+    faq: {
+      eyebrow: "FAQ", title: "Questions fréquentes.",
+      items: [
+        { q: "Comment se pose un poster adhésif ?", a: "Nettoyez et séchez le mur, décollez le dos par un coin, puis posez le poster en lissant du centre vers les bords pour chasser l'air." },
+        { q: "Quelle est la taille des posters ?", a: "Format A4 : 21 × 29,7 cm." },
+        { q: "Comment passer commande ?", a: "Ajoutez vos posters au panier, remplissez vos coordonnées, puis envoyez le message WhatsApp préparé automatiquement. Nous vous répondons pour confirmer." },
+        { q: "Comment je paie ?", a: "En espèces, au livreur, à la réception de votre colis (paiement à la livraison)." },
+        { q: "Combien coûte la livraison ?", a: `Le prix dépend de votre ville et s'affiche avant de commander. Elle est offerte dès ${STORE.freeShippingFrom} MAD d'achat.` },
+        { q: "Quels sont les délais ?", a: "Les délais indicatifs sont affichés selon votre ville au moment de la commande, puis confirmés par WhatsApp." },
+        { q: "Puis-je retourner un poster ?", a: "Voir notre page Livraison & retours. Un produit arrivé abîmé est remplacé : envoyez-nous une photo sur WhatsApp." },
+      ],
+    },
+    shipping: {
+      eyebrow: "Livraison & retours", title: "Livraison au Maroc, paiement à la réception.",
+      tableCity: "Zone", tableFee: "Frais", tableEta: "Délai indicatif", free: `Livraison offerte dès ${STORE.freeShippingFrom} MAD d'achat.`,
+      other: "Autres villes", returnsTitle: "Retours & échanges",
+      returns: [
+        "Produit abîmé ou erroné : contactez-nous sous 48 h après réception avec une photo, nous le remplaçons.",
+        "Les posters adhésifs déjà décollés ou posés ne peuvent pas être repris.",
+        "Politique de retour à finaliser par la marque avant le lancement (modèle).",
+      ],
+    },
+    privacy: {
+      eyebrow: "Confidentialité", title: "Politique de confidentialité (modèle).",
+      sections: [
+        { h: "Données collectées", p: "Nom, téléphone, ville, adresse et contenu de la commande, uniquement pour préparer et livrer votre commande." },
+        { h: "Où sont-elles stockées ?", p: "Dans cette version, le site n'a pas de serveur : panier, favoris et commandes préparées restent dans votre navigateur. Les informations ne nous parviennent que lorsque vous envoyez le message WhatsApp." },
+        { h: "Partage", p: "Vos coordonnées sont transmises au transporteur uniquement pour la livraison. Elles ne sont jamais vendues." },
+        { h: "Vos droits", p: "Conformément à la loi marocaine 09-08, vous pouvez demander l'accès, la rectification ou la suppression de vos données en nous écrivant." },
+        { h: "À valider", p: "Ce texte est un modèle : faites-le valider (et déclarez le traitement auprès de la CNDP si nécessaire) avant le lancement." },
+      ],
+    },
+    terms: {
+      eyebrow: "Conditions", title: "Conditions générales de vente (modèle).",
+      sections: [
+        { h: "Produits", p: "Posters adhésifs au format A4 et stickers. Les visuels sont indicatifs ; de légères variations de couleur à l'impression sont possibles." },
+        { h: "Prix", p: "Prix en dirhams marocains (MAD), frais de livraison affichés avant validation." },
+        { h: "Commande", p: "La commande est définitive lorsqu'elle est confirmée par ONELINE sur WhatsApp." },
+        { h: "Paiement", p: "Paiement en espèces à la livraison." },
+        { h: "Livraison", p: "Délais indicatifs selon la ville ; ONELINE vous informe en cas de retard." },
+        { h: "À valider", p: "Ce texte est un modèle à faire valider par un professionnel avant le lancement." },
+      ],
+    },
+  },
+};
+
+export type Dict = typeof fr;
+
+const ar: Dict = {
+  dir: "rtl",
+  currency: "درهم",
+  announce: "متجر تجريبي — منتجات وأسعار للعرض فقط · الدفع عند الاستلام في المغرب",
+  nav: {
+    shop: "المتجر", vibes: "الأجواء", best: "الأكثر مبيعاً", about: "العلامة", search: "بحث", cart: "السلة",
+    favorites: "المفضلة", menu: "القائمة", close: "إغلاق", switchTo: "Français", switchShort: "FR",
+    track: "تتبع طلبي", contact: "اتصل بنا",
+  },
+  hero: {
+    eyebrow: "N°01 — مجموعة شتاء 2026 · ملصقات A4 لاصقة",
+    subtitle: "حوّل مساحاتك العادية إلى شيء استثنائي.",
+    cta1: "اكتشف المجموعة", cta2: "الأكثر مبيعاً",
+    stats: ["تصميم", "A4 · 21 × 29.7 سم", "الدفع عند الاستلام"], scroll: "مرّر",
+  },
+  marquee: ["ملصقات A4 لاصقة", "الدفع عند الاستلام", "الطلب عبر واتساب", "تصاميم مختارة حسب الأجواء", "مصممة لجدران المغرب"],
+  vibes: {
+    eyebrow: "تسوّق حسب الأجواء", title: "اختر أجواءك.",
+    sub: "سبعة عوالم وسبع شخصيات. اختر الذي يشبه غرفتك — أو الغرفة التي تحلم بها.",
+    designs: (n: number) => `${n} تصميم`, explore: "اكتشف",
+  },
+  featured: {
+    eyebrow: "اختياراتنا", title: "على الجدران هذا الأسبوع.",
+    tabs: { best: "الأكثر مبيعاً", new: "جديد", limited: "إصدار محدود" }, viewAll: "عرض كل المتجر",
+  },
+  product: {
+    add: "أضف إلى السلة", added: "تمت الإضافة ✓", quick: "نظرة سريعة", fav: "أضف إلى المفضلة", unfav: "إزالة من المفضلة",
+    format: "المقاس", poster: "ملصق لاصق A4 — 21 × 29.7 سم", sticker: "ستيكر مقصوص — المقاس يُحدد لاحقاً",
+    qty: "الكمية", details: "التفاصيل", apply: "طريقة اللصق",
+    applyText: "نظّف الجدار وجففه، انزع الغطاء من إحدى الزوايا، ثم الصق الملصق مع التمليس من الوسط نحو الأطراف.",
+    delivery: "التوصيل والدفع",
+    deliveryText: `التوصيل داخل المغرب، والثمن حسب المدينة (مجاني ابتداءً من ${STORE.freeShippingFrom} درهم). تدفع نقداً عند الاستلام.`,
+    related: "قد يعجبك أيضاً", viewFull: "عرض صفحة المنتج",
+    badge: { best: "الأكثر مبيعاً", new: "جديد", limited: "إصدار محدود" },
+    original: "تصميم أصلي من ONELINE", demo: "منتج تجريبي (السعر والصورة للعرض)", collection: "المجموعة", type: "النوع", sticker1: "ستيكر", poster1: "ملصق A4",
+    orderNow: "اطلب الآن", back: "العودة إلى المتجر", notFound: "هذا الملصق غير موجود.",
+  },
+  room: {
+    eyebrow: "قبل / بعد", title: "جدار واحد. ستة ملصقات. غرفة مختلفة.",
+    sub: "اسحب لترى الفرق. بدون إطار ولا أدوات: ملصقات A4 لاصقة.",
+    before: "قبل", after: "بعد", hint: "اسحب للمقارنة", label: "قارن الغرفة قبل وبعد",
+  },
+  why: {
+    eyebrow: "لماذا ملصقاتنا؟", title: "طلب بسيط. لصق سهل. مصمم لجدارك.",
+    items: [
+      { t: "مقاس A4", d: "21 × 29.7 سم: المقاس المثالي لتنسيق جدار أو باب أو ركن مكتب." },
+      { t: "لاصق", d: "بدون إطار ولا مسامير: الملصق يُلصق مباشرة." },
+      { t: "الدفع عند الاستلام", d: "تدفع نقداً عندما تستلم طردك." },
+      { t: "الطلب عبر واتساب", d: "يصلنا طلبك على واتساب ونرد عليك للتأكيد." },
+      { t: "التوصيل في المغرب", d: "ثمن التوصيل يظهر حسب مدينتك قبل الطلب، بدون مفاجآت." },
+      { t: "تصاميم مختارة", d: "مجموعات حسب الأجواء وتصاميم أصلية من ONELINE." },
+    ],
+  },
+  how: {
+    eyebrow: "كيف يعمل", title: "ثلاث خطوات. دقيقة واحدة.",
+    steps: [
+      { t: "اختر ملصقاتك", d: "تصفح حسب الأجواء، أضف إلى السلة، ونسّق جدارك." },
+      { t: "اطلب عبر واتساب", d: "الاسم والهاتف والمدينة والعنوان: نجهز الرسالة من أجلك." },
+      { t: "ادفع عند الاستلام", d: "نؤكد عبر واتساب، وتدفع نقداً عند التسليم." },
+    ],
+  },
+  social: {
+    eyebrow: "@oneline.ma", title: "جدرانكم على الحقيقة.",
+    sub: "شارك جدارك مع ‎#ONELINEwall — ستظهر صوركم هنا.",
+    placeholder: "مكان صورة زبون", reviewsTitle: "آراؤكم",
+    reviewExample: "مثال — سيتم استبداله برأي حقيقي",
+    reviews: [
+      { text: "مكان لرأي زبون حقيقي: جودة الملصق وسرعة التوصيل وشكله على الجدار.", who: "زبون · الدار البيضاء" },
+      { text: "مكان لرأي زبون حقيقي: سهولة الطلب عبر واتساب والدفع عند الاستلام.", who: "زبونة · الرباط" },
+      { text: "مكان لرأي زبون حقيقي: صورة الغرفة قبل وبعد، والتصميم المفضل.", who: "زبون · مراكش" },
+    ],
+  },
+  cta: { title: "الصق عالمك.", sub: "ابدأ بملصق واحد. وانتهِ بجدار يشبهك.", button: "نسّق جداري" },
+  footer: {
+    shop: "المتجر", help: "مساعدة", legal: "قانوني", follow: "تابعنا",
+    links: {
+      all: "كل الملصقات", best: "الأكثر مبيعاً", stickers: "ستيكرات", faq: "الأسئلة الشائعة", shipping: "التوصيل والإرجاع",
+      track: "تتبع الطلب", contact: "اتصل بنا", privacy: "الخصوصية", terms: "الشروط العامة", about: "العلامة",
+    },
+    delivery: "التوصيل حيثما يصل شريكنا للتوصيل · الدفع عند الاستلام",
+    demo: "موقع تجريبي: المنتجات والأسعار ومعلومات الاتصال للعرض فقط.", rights: "جميع الحقوق محفوظة.",
+  },
+  shop: {
+    title: "المتجر", sub: "كل ملصقاتنا A4 اللاصقة والستيكرات، مع تصفية حسب الأجواء.",
+    search: "ابحث عن ملصق…", all: "الكل",
+    type: { label: "النوع", all: "الكل", poster: "ملصقات", sticker: "ستيكرات" },
+    sort: { label: "ترتيب", popular: "الأكثر شعبية", priceAsc: "السعر تصاعدياً", priceDesc: "السعر تنازلياً", newest: "الأحدث", name: "الاسم" },
+    results: (n: number) => `${n} تصميم`,
+    empty: "لا توجد ملصقات تطابق بحثك.", reset: "إعادة ضبط التصفية", favOnly: "مفضلتي",
+  },
+  cart: {
+    title: "سلتك", empty: "سلتك فارغة.", emptyCta: "اكتشف الملصقات", subtotal: "المجموع الفرعي",
+    deliveryNote: "يُحسب ثمن التوصيل حسب مدينتك في الخطوة التالية.", checkout: "إتمام الطلب",
+    view: "عرض السلة", remove: "إزالة", continue: "متابعة التسوق", items: (n: number) => `${n} منتج`,
+    freeLeft: (m: string) => `تبقى ${m} للحصول على توصيل مجاني`, freeReached: "حصلت على التوصيل المجاني ✓",
+  },
+  checkout: {
+    title: "الطلب", sub: "الدفع عند الاستلام. التأكيد عبر واتساب.",
+    contact: "معلوماتك", name: "الاسم الكامل", phone: "الهاتف", phoneHint: "مثال: 06 12 34 56 78",
+    delivery: "التوصيل", city: "المدينة", chooseCity: "اختر مدينتك", otherCity: "مدينة أخرى…",
+    otherCityName: "اسم مدينتك", address: "العنوان الكامل", addressHint: "الحي، الشارع، الرقم، العمارة، علامة مميزة…",
+    note: "ملاحظة (اختياري)", notePh: "الوقت المفضل، تفاصيل…", summary: "ملخص الطلب", subtotal: "المجموع الفرعي",
+    deliveryFee: "التوصيل", free: "مجاني", total: "المبلغ المستحق", payment: "الدفع", cod: "الدفع عند الاستلام (نقداً)",
+    codHint: "تدفع لعامل التوصيل عند استلام الطرد.", submit: "جهّز طلبي على واتساب",
+    chooseCityFirst: "حسب المدينة", eta: (e: string) => `المدة التقريبية: ${e}`,
+    errors: {
+      name: "اكتب اسمك (3 أحرف على الأقل).", phone: "رقم مغربي غير صحيح (مثال: 06 12 34 56 78).",
+      city: "اختر مدينتك.", address: "العنوان قصير جداً: الحي، الشارع، الرقم…", empty: "سلتك فارغة.",
+    },
+    honest: "لا يُسجَّل أي شيء حتى ترسل رسالة واتساب. يتأكد طلبك عندما نرد عليك.",
+  },
+  order: {
+    title: "طلبك جاهز.", status: "لم يُرسل بعد",
+    lead: "الخطوة الأخيرة: أرسله إلينا عبر واتساب. سيتأكد عندما نرد عليك.",
+    send: "إرسال عبر واتساب", copy: "نسخ الرسالة", copied: "تم النسخ ✓", ref: "المرجع",
+    local: "نسخة محفوظة على هذا الجهاز فقط، من أجل التتبع.", missing: "لم يتم العثور على الطلب في هذا الجهاز.",
+    backShop: "العودة إلى المتجر", details: "التفاصيل", preview: "معاينة الرسالة",
+  },
+  track: {
+    title: "تتبع طلبي", sub: "أدخل مرجع الطلب (مثال OL-261121-AB12) ورقم هاتفك.",
+    ref: "المرجع", phone: "الهاتف", search: "بحث", notFound: "لم يتم العثور على أي طلب بهذه المعلومات في هذا الجهاز.",
+    honest: "التتبع المباشر عبر الإنترنت يحتاج إلى خادم (انظر README). في الوقت الحالي، اسأل عن الحالة عبر واتساب.",
+    ask: "اسأل عن الحالة عبر واتساب", device: "طلبات تم تجهيزها على هذا الجهاز",
+    steps: ["تم التجهيز", "تم التأكيد عبر واتساب", "تم الشحن", "تم التسليم"], unknown: "الحالة تُؤكد عبر واتساب",
+    askMsg: (ref: string) => `السلام ${STORE.name}، بغيت نعرف حالة الطلب ديالي ${ref}.`,
+  },
+  common: { backHome: "العودة إلى الرئيسية", notFoundTitle: "هذا الجدار ما زال فارغاً.", notFoundSub: "الصفحة المطلوبة غير موجودة.", loading: "جارٍ التحميل", demo: "تجريبي" },
+  pages: {
+    about: {
+      eyebrow: "العلامة", title: "لا نبيع ملصقات. نبيع جدراناً تتكلم.",
+      paras: [
+        "وُلدت ONELINE من فكرة بسيطة: الجدار الفارغ لا يقول شيئاً. أما الجدار المنسق فيحكي من أنت — سياراتك، أفلامك، أبطالك، موسيقاك، كلماتك.",
+        "ملصقاتنا A4 اللاصقة مصممة لغرف الطلبة وأركان الألعاب والمكاتب، وكل غرفة تستحق شخصية. بدون إطار وبدون أدوات.",
+        "كل مجموعة مختارة حسب الأجواء، وتصاميمنا الأصلية مصنوعة لمغرب اليوم: مباشر، فخور، ومبدع.",
+      ],
+      values: [{ t: "اختيار دقيق", d: "أقل، لكن مختار بعناية." }, { t: "في المتناول", d: "أسعار واضحة بالدرهم." }, { t: "قريبون منك", d: "شخص حقيقي على واتساب." }],
+    },
+    contact: {
+      eyebrow: "اتصل بنا", title: "لنتحدث عن جدارك.", sub: "الأسرع: واتساب. نرد خلال أوقات العمل.",
+      whatsapp: "راسلنا على واتساب", email: "البريد الإلكتروني", social: "الشبكات", formTitle: "أرسل رسالة",
+      name: "الاسم", message: "الرسالة", send: "إرسال عبر واتساب",
+      honest: "هذا النموذج يجهز رسالة واتساب: لا يتم إرسال أي شيء إلى خادم.",
+    },
+    faq: {
+      eyebrow: "الأسئلة الشائعة", title: "أسئلة متكررة.",
+      items: [
+        { q: "كيف ألصق الملصق؟", a: "نظّف الجدار وجففه، انزع الغطاء من إحدى الزوايا، ثم الصق الملصق مع التمليس من الوسط نحو الأطراف لإخراج الهواء." },
+        { q: "ما هو مقاس الملصقات؟", a: "مقاس A4: ‏21 × 29.7 سم." },
+        { q: "كيف أطلب؟", a: "أضف الملصقات إلى السلة، املأ معلوماتك، ثم أرسل رسالة واتساب المجهزة تلقائياً. نرد عليك للتأكيد." },
+        { q: "كيف أدفع؟", a: "نقداً لعامل التوصيل عند استلام الطرد (الدفع عند الاستلام)." },
+        { q: "كم ثمن التوصيل؟", a: `يتغير حسب مدينتك ويظهر قبل الطلب. التوصيل مجاني ابتداءً من ${STORE.freeShippingFrom} درهم.` },
+        { q: "ما هي مدة التوصيل؟", a: "تظهر المدة التقريبية حسب مدينتك عند الطلب، ثم نؤكدها عبر واتساب." },
+        { q: "هل يمكنني إرجاع ملصق؟", a: "انظر صفحة التوصيل والإرجاع. المنتج الذي يصل تالفاً يتم تعويضه: أرسل لنا صورة على واتساب." },
+      ],
+    },
+    shipping: {
+      eyebrow: "التوصيل والإرجاع", title: "توصيل في المغرب، والدفع عند الاستلام.",
+      tableCity: "المنطقة", tableFee: "الثمن", tableEta: "المدة التقريبية", free: `التوصيل مجاني ابتداءً من ${STORE.freeShippingFrom} درهم.`,
+      other: "مدن أخرى", returnsTitle: "الإرجاع والاستبدال",
+      returns: [
+        "منتج تالف أو خاطئ: تواصل معنا خلال 48 ساعة من الاستلام مع صورة، وسنستبدله.",
+        "لا يمكن استرجاع الملصقات التي تم نزع غطائها أو لصقها.",
+        "سياسة الإرجاع يجب أن تُعتمد من طرف العلامة قبل الإطلاق (نموذج).",
+      ],
+    },
+    privacy: {
+      eyebrow: "الخصوصية", title: "سياسة الخصوصية (نموذج).",
+      sections: [
+        { h: "المعطيات المجمعة", p: "الاسم والهاتف والمدينة والعنوان ومحتوى الطلب، فقط لتجهيز طلبك وتوصيله." },
+        { h: "أين تُحفظ؟", p: "في هذه النسخة لا يوجد خادم: السلة والمفضلة والطلبات المجهزة تبقى في متصفحك. لا تصلنا المعلومات إلا عند إرسال رسالة واتساب." },
+        { h: "المشاركة", p: "تُرسل معلوماتك إلى شركة التوصيل فقط من أجل التسليم، ولا تُباع أبداً." },
+        { h: "حقوقك", p: "وفقاً للقانون المغربي 09-08، يمكنك طلب الاطلاع على معطياتك أو تصحيحها أو حذفها بمراسلتنا." },
+        { h: "للمصادقة", p: "هذا النص نموذج: يجب التحقق منه (والتصريح لدى اللجنة الوطنية CNDP عند الحاجة) قبل الإطلاق." },
+      ],
+    },
+    terms: {
+      eyebrow: "الشروط", title: "الشروط العامة للبيع (نموذج).",
+      sections: [
+        { h: "المنتجات", p: "ملصقات لاصقة بمقاس A4 وستيكرات. الصور للتوضيح، وقد تختلف الألوان قليلاً عند الطباعة." },
+        { h: "الأسعار", p: "الأسعار بالدرهم المغربي، وثمن التوصيل يظهر قبل تأكيد الطلب." },
+        { h: "الطلب", p: "يصبح الطلب نهائياً عندما تؤكده ONELINE عبر واتساب." },
+        { h: "الدفع", p: "الدفع نقداً عند الاستلام." },
+        { h: "التوصيل", p: "المدد تقريبية حسب المدينة، وتخبرك ONELINE في حالة التأخير." },
+        { h: "للمصادقة", p: "هذا النص نموذج يجب التحقق منه من طرف مختص قبل الإطلاق." },
+      ],
+    },
+  },
+};
+
+export const DICTS = { fr, ar };
