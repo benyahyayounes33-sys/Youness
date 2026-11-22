@@ -27,6 +27,19 @@ npm run build      # static site in dist/ (deploy anywhere: Netlify, Vercel, Git
 | **Type** | Bodoni Moda headlines and Jost body, animated letter by letter. Near-black `#050404`, bone `#f2ede4`, Prussian blue `#003153`, ONELINE red as the only accent. |
 | **Accessibility** | `prefers-reduced-motion` slows the rings, disables the streak and simplifies the letter animation. Without WebGL, the page shows the nine sites as a simple list. |
 
+## Walkthrough video
+
+`out/the-well.mp4`: 71 s, 1280×720, 30 fps, with its synthesized soundtrack. It was recorded frame by frame from
+the real page with `tools/capture.cjs`, so it shows exactly what a visitor sees: the gate, the descent, a screen
+pulled off the wall and unrolled, the watcher and the zoetrope, and the ring-of-light finale.
+
+`dist/` is the ready-to-deploy static build (upload the folder to any static host).
+
+![Top of the well](docs/frame-009.5.jpg)
+![Unrolled screen](docs/frame-031.0.jpg)
+![The watcher](docs/frame-053.4.jpg)
+![Ring of light](docs/frame-069.0.jpg)
+
 ## Files
 
 - `src/world.js`: the well, rings, screens, camera path, the figure, the zoetrope, picking and the unroll.

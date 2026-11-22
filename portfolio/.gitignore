@@ -1,5 +1,5 @@
 node_modules/
-dist/
+
 tools/.raw/
 # render masters and intermediates (too large for GitHub); only out/the-well.mp4 is committed
 out/the-well-walkthrough*.mp4

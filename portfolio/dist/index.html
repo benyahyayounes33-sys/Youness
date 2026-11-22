@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#050404" />
+    <title>ONELINE — The Well · nine walls, one line</title>
+    <meta name="description" content="ONELINE portfolio: a scroll-driven descent through nine walls — the poster store and its seven vibes." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23050404'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23f2ede4' stroke-width='3'/%3E%3Ccircle cx='46' cy='46' r='4' fill='%23ff3b30'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-B7ER1w6D.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Boij5YdR.css">
+  </head>
+  <body>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div id="scroll" aria-hidden="true"></div>
+
+    <!-- gate -->
+    <section id="gate" aria-label="Enter">
+      <p class="gate-mark">ONELINE<span class="red">.</span> — portfolio</p>
+      <h1 class="kin gate-title" data-text="The Well"></h1>
+      <p class="gate-sub">A descent through nine walls. Scroll to go down.</p>
+      <div class="gate-actions">
+        <button id="enter-sound" class="btn btn-solid">Enter with sound</button>
+        <button id="enter-quiet" class="btn">Enter quietly</button>
+      </div>
+      <p class="gate-note">Headphones recommended · all sound is synthesized live</p>
+      <p id="gate-load" class="gate-load">loading the walls · <span id="load-pct">0</span>%</p>
+    </section>
+
+    <!-- chapter type -->
+    <div id="chapters">
+      <article class="chapter" data-from="0.00" data-to="0.075" data-pos="center">
+        <p class="eyebrow">ONELINE · the well</p>
+        <h2 class="kin" data-text="Nine walls."></h2>
+        <h2 class="kin italic" data-text="One line."></h2>
+      </article>
+      <article class="chapter" data-from="0.10" data-to="0.24" data-pos="left">
+        <p class="eyebrow">I — the rings</p>
+        <h2 class="kin" data-text="Every screen is a wall"></h2>
+        <h2 class="kin italic" data-text="someone lives with."></h2>
+        <p class="body">Nine ONELINE sites — the store and its seven vibes — recorded top to bottom and set turning. Scroll faster and they spin and play faster.</p>
+      </article>
+      <article class="chapter" data-from="0.30" data-to="0.44" data-pos="right">
+        <p class="eyebrow">II — the narrowing</p>
+        <h2 class="kin" data-text="The deeper you go,"></h2>
+        <h2 class="kin italic" data-text="the faster it turns."></h2>
+        <p class="body">Click any screen: it leaves the wall and unrolls flat in front of you.</p>
+      </article>
+      <article class="chapter" data-from="0.50" data-to="0.64" data-pos="left">
+        <p class="eyebrow">III — the vibes</p>
+        <h2 class="kin" data-text="Cars. Anime. Cinema."></h2>
+        <h2 class="kin italic" data-text="Music, football, mindset."></h2>
+        <p class="body">A4 adhesive posters, curated by vibe, paid on delivery across Morocco.</p>
+      </article>
+      <article class="chapter" data-from="0.76" data-to="0.88" data-pos="top-left">
+        <p class="eyebrow">IV — the watcher</p>
+        <h2 class="kin" data-text="Someone is always"></h2>
+        <h2 class="kin italic" data-text="looking at your wall."></h2>
+      </article>
+      <article class="chapter" data-from="0.93" data-to="1.01" data-pos="bottom">
+        <p class="eyebrow">ONELINE · walls that say something</p>
+        <h2 class="kin" data-text="Your walls."></h2>
+        <h2 class="kin italic" data-text="Your world."></h2>
+        <p class="body center">Posters A4 adhésifs · paiement à la livraison · Maroc</p>
+      </article>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud">
+      <div class="hud-depth"><span class="hud-line"><i id="depth-mark"></i></span><span id="depth-val">−00.0 m</span></div>
+      <p id="watching" class="watching"><span class="w-label">watching</span> <span id="watching-name">—</span></p>
+      <p id="zoe-caption" class="zoe-caption"></p>
+      <button id="sound-toggle" class="sound-toggle" aria-pressed="false">sound off</button>
+      <p class="hint" id="hint">scroll ↓</p>
+    </div>
+
+    <!-- focus overlay -->
+    <aside id="focus" aria-live="polite" hidden>
+      <p class="eyebrow" id="focus-index"></p>
+      <h2 class="kin" id="focus-title" data-text=""></h2>
+      <p class="body" id="focus-desc"></p>
+      <p class="focus-help">scroll to play the recording · click or <kbd>Esc</kbd> to put it back</p>
+      <a id="focus-link" class="btn btn-solid" target="_blank" rel="noreferrer" hidden>Open the wall ↗</a>
+    </aside>
+
+    <!-- accessible list / no-WebGL fallback -->
+    <nav id="sites-list" aria-label="The nine walls"></nav>
+
+  </body>
+</html>
