@@ -47,12 +47,12 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--bone); outline-
 
 /* chapters */
 #chapters { position: fixed; inset: 0; z-index: 5; pointer-events: none; }
-.chapter { position: absolute; max-width: min(46rem, 88vw); visibility: hidden; }
+.chapter { position: absolute; max-width: min(54rem, 90vw); visibility: hidden; }
 .chapter .eyebrow, .chapter .body { opacity: 0; }
 .chapter::before { content: ""; position: absolute; inset: -38% -26%; z-index: -1; background: radial-gradient(closest-side, rgba(5, 4, 4, 0.66), rgba(5, 4, 4, 0.3) 60%, transparent); }
 .chapter h2, #focus h2 { text-shadow: 0 2px 30px rgba(5, 4, 4, 0.65); }
 .chapter.vis { visibility: visible; }
-.chapter h2 { font-size: clamp(40px, 6.4vw, 104px); }
+.chapter h2 { font-size: clamp(36px, 4.9vw, 86px); text-wrap: balance; }
 .chapter[data-pos="center"] { inset: 0; margin: auto; height: fit-content; text-align: center; }
 .chapter[data-pos="center"] .eyebrow { text-align: center; }
 .chapter[data-pos="left"] { left: clamp(20px, 6vw, 96px); bottom: clamp(90px, 14vh, 160px); }

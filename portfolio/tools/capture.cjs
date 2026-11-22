@@ -33,7 +33,7 @@ function cmdAt(t, f) {
   // look around during the descent, then hover a screen before clicking it
   if (t > 20 && t < 27.6) c.pointer = [0.42 * sm(20, 23, t), 0.05];
   if (f === Math.round(27.6 * FPS)) c.focus = "pointer";
-  if (t > 28.8 && t < 33.8) c.scrub = 0.0042;
+  if (t > 28.8 && t < 33.8) c.scrub = 0.063 / FPS;   // ~0.3 of the page over 5 s, independent of fps
   if (f === Math.round(34.2 * FPS)) c.unfocus = true;
   // at the bottom: look at a ring screen (the figure turns to it), then another, then back to the zoetrope
   const A = [-0.2, 0.92], B = [0.3, 0.9];
