@@ -1,0 +1,5 @@
+node_modules/
+dist/
+out/*_video.mp4
+out/*.wav
+tools/.raw/
