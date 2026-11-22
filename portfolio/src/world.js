@@ -222,7 +222,7 @@ export class World {
     const eD = easeIO(uD);
     const kD = smooth(0, 0.35, uD);
     const posD = new THREE.Vector3(posC.x * (1 - kD), THREE.MathUtils.lerp(fy + 1.75, 27, eD), THREE.MathUtils.lerp(posC.z, 9.5, kD));
-    const qTop = look(new THREE.Vector3(0, 27, 9.5), new THREE.Vector3(0, fy * 0.2 - 2.5, 0), new THREE.Vector3(0, 0, -1));
+    const qTop = look(new THREE.Vector3(0, 27, 9.5), new THREE.Vector3(0, fy * 0.2 - 11.5, 0), new THREE.Vector3(0, 0, -1));
     const qD = qC.clone().slerp(qTop, smooth(0.05, 0.6, uD));
 
     let pos, quat;
@@ -277,10 +277,10 @@ export class World {
     const d = 2.6;
     const visH = 2 * d * Math.tan(THREE.MathUtils.degToRad(cam.fov / 2));
     const visW = visH * cam.aspect;
-    const scale = Math.min((visW * 0.6) / ud.ring.w, (visH * 0.62) / ud.ring.h);
+    const scale = Math.min((visW * (cam.aspect > 1 ? 0.5 : 0.86)) / ud.ring.w, (visH * 0.58) / ud.ring.h);
     const fwd = new THREE.Vector3(0, 0, -1).applyQuaternion(cam.quaternion);
     const right = new THREE.Vector3(1, 0, 0).applyQuaternion(cam.quaternion);
-    const tPos = cam.position.clone().addScaledVector(fwd, d).addScaledVector(right, cam.aspect > 1 ? visW * 0.12 : 0);
+    const tPos = cam.position.clone().addScaledVector(fwd, d).addScaledVector(right, cam.aspect > 1 ? visW * 0.2 : 0).addScaledVector(new THREE.Vector3(0, 1, 0).applyQuaternion(cam.quaternion), cam.aspect > 1 ? 0 : visH * 0.14);
     const arc = new THREE.Vector3(0, Math.sin(Math.PI * e) * 0.6, 0);
     mesh.position.copy(sPos).lerp(tPos, e).add(arc);
     mesh.quaternion.copy(sQuat).slerp(cam.quaternion, e);
@@ -320,7 +320,7 @@ export class World {
     // fog thins as we rise for the finale so the whole well can glow
     const fogK = p > 0.9 ? THREE.MathUtils.lerp(0.03, 0.004, smooth(0.9, 0.97, p)) : p < 0.07 ? THREE.MathUtils.lerp(0.012, 0.03, smooth(0.0, 0.07, p)) : 0.03;
     this.scene.fog.density = fogK;
-    this.mouthMat.color.copy(BONE).multiplyScalar(1.6 + 3.2 * smooth(0.92, 1, p));
+    this.mouthMat.color.copy(BONE).multiplyScalar(1.6 + 1.4 * smooth(0.92, 1, p));
 
     // rings turn and screens play, both driven by scroll velocity (scrolling up runs them backwards)
     const drive = (0.32 + 3.6 * sv) * motion;

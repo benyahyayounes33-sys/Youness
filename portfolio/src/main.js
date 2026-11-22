@@ -198,7 +198,8 @@ function boot() {
     post.lens.uniforms.uStreak.value = reduced ? 0 : Math.min(1.4, Math.max(0, Math.abs(vel) * 6 - 0.04));
     post.lens.uniforms.uDir.value.set(0, Math.sign(vel) || 1);
     post.lens.uniforms.uTime.value = t;
-    post.bloom.strength = 0.55 + speed * 0.3 + (p > 0.93 ? 0.45 * Math.min(1, (p - 0.93) / 0.05) : 0);
+    post.bloom.strength = 0.55 + speed * 0.3 + (p > 0.93 ? 0.2 * Math.min(1, (p - 0.93) / 0.05) : 0);
+    post.bloom.radius = p > 0.9 ? 0.45 - 0.2 * Math.min(1, (p - 0.9) / 0.06) : 0.45;
     post.lens.uniforms.uFade.value = entered ? Math.min(1, (t - enterT) / 1.6 + 0.25) : 0.25;
     post.composer.render(dt);
 

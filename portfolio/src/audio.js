@@ -56,7 +56,7 @@ export class SoundEngine {
     this.master = ctx.createGain();
     this.master.gain.value = 0;
     this.comp = ctx.createDynamicsCompressor();
-    this.comp.threshold.value = -26; this.comp.knee.value = 12; this.comp.ratio.value = 4;
+    this.comp.threshold.value = -24; this.comp.knee.value = 12; this.comp.ratio.value = 2.6;
     this.comp.attack.value = 0.004; this.comp.release.value = 0.25;
     this.makeup = ctx.createGain();
     this.makeup.gain.value = 2.2;
@@ -103,7 +103,7 @@ export class SoundEngine {
       const o = ctx.createOscillator();
       o.frequency.value = f;
       const g = ctx.createGain();
-      g.gain.value = [0.022, 0.012, 0.005][i];
+      g.gain.value = [0.016, 0.006, 0.003][i];
       o.connect(g).connect(this.roomGain);
       return o;
     });
