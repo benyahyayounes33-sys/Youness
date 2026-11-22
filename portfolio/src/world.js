@@ -47,8 +47,8 @@ export class World {
       y -= h / 2;
       const group = new THREE.Group();
       group.position.y = y;
-      const ring = { group, R, w, h, n, y, i, speed: 0.06 * Math.pow(1.3, i) * (i % 2 ? -1 : 1), angle: i * 0.7, detent: 0, lastClick: -1 };
-      ring.detentSize = (2 * Math.PI) / n;
+      const ring = { group, R, w, h, n, y, i, speed: 0.085 * Math.pow(1.27, i) * (i % 2 ? -1 : 1), angle: i * 0.7, detent: 0, lastClick: -1 };
+      ring.detentSize = (2 * Math.PI) / (n * 3);
       group.rotation.y = ring.angle;
       const geo = screenGeometry(w, h, R);
       for (let k = 0; k < n; k++) {
@@ -82,7 +82,8 @@ export class World {
     const wall = new THREE.Mesh(new THREE.LatheGeometry(wallPts.reverse(), 120),
       new THREE.MeshStandardMaterial({ color: 0x0d0c0b, roughness: 0.93, metalness: 0.06, side: THREE.BackSide }));
     scene.add(wall);
-    const mouth = new THREE.Mesh(new THREE.TorusGeometry(R0 + 0.7, 0.035, 8, 260), new THREE.MeshBasicMaterial({ color: BONE.clone().multiplyScalar(1.6) }));
+    this.mouthMat = new THREE.MeshBasicMaterial({ color: BONE.clone().multiplyScalar(1.6) });
+    const mouth = new THREE.Mesh(new THREE.TorusGeometry(R0 + 0.7, 0.05, 8, 260), this.mouthMat);
     mouth.rotation.x = Math.PI / 2;
     mouth.position.y = 4.2;
     scene.add(mouth);
@@ -205,7 +206,7 @@ export class World {
     // B — the descent: spiral down the axis, looking out at the walls
     const uB = clamp((p - 0.055) / (0.74 - 0.055), 0, 1);
     const yaw = Math.PI + uB * Math.PI * 2.3;
-    const pitch = THREE.MathUtils.lerp(-1.35, -0.2, smooth(0, 0.14, uB)) + 0.05 * Math.sin(uB * 9);
+    const pitch = THREE.MathUtils.lerp(-1.35, -0.4, smooth(0, 0.14, uB)) + 0.07 * Math.sin(uB * 9) + 0.12 * smooth(0.85, 1, uB);
     const yB = THREE.MathUtils.lerp(2.4, this.lastRingY - 0.4, uB * uB * (1.6 - 0.6 * uB));
     const posB = new THREE.Vector3(-Math.sin(yaw) * 0.55, yB, -Math.cos(yaw) * 0.55);
     const dirB = new THREE.Vector3(Math.cos(pitch) * Math.sin(yaw), Math.sin(pitch), Math.cos(pitch) * Math.cos(yaw));
@@ -214,14 +215,14 @@ export class World {
     const uC = clamp((p - 0.72) / (0.9 - 0.72), 0, 1);
     const orbit = 0.62 - 0.18 * uC;
     const posC = new THREE.Vector3(Math.sin(orbit) * 5.4, fy + 1.7 + 0.25 * (1 - uC), Math.cos(orbit) * 5.4);
-    const tgtC = new THREE.Vector3(-0.35, fy + 2.75, -6.4);
+    const tgtC = new THREE.Vector3(-2.7, fy + 2.75, -6.4);
     const qC = look(posC, tgtC);
     // D — finale: rise out until the well is a ring of light
     const uD = clamp((p - 0.9) / 0.1, 0, 1);
     const eD = easeIO(uD);
     const kD = smooth(0, 0.35, uD);
-    const posD = new THREE.Vector3(posC.x * (1 - kD), THREE.MathUtils.lerp(fy + 1.75, 39, eD), THREE.MathUtils.lerp(posC.z, 13.5, kD));
-    const qTop = look(new THREE.Vector3(0, 39, 13.5), new THREE.Vector3(0, fy * 0.3, 0), new THREE.Vector3(0, 0, -1));
+    const posD = new THREE.Vector3(posC.x * (1 - kD), THREE.MathUtils.lerp(fy + 1.75, 27, eD), THREE.MathUtils.lerp(posC.z, 9.5, kD));
+    const qTop = look(new THREE.Vector3(0, 27, 9.5), new THREE.Vector3(0, fy * 0.2 - 2.5, 0), new THREE.Vector3(0, 0, -1));
     const qD = qC.clone().slerp(qTop, smooth(0.05, 0.6, uD));
 
     let pos, quat;
@@ -252,13 +253,15 @@ export class World {
     if (this.focus || !mesh || mesh.userData.zoe) return false;
     const parent = mesh.parent;
     this.scene.attach(mesh);
-    this.focus = { mesh, parent, t: 0, dir: 1, startPos: mesh.position.clone(), startQuat: mesh.quaternion.clone() };
+    this.focus = { mesh, parent, t: 0, dir: 1, startPos: mesh.position.clone(), startQuat: mesh.quaternion.clone(), prevOffset: mesh.material.uniforms.uOffset.value };
+    mesh.material.uniforms.uOffset.value = 0.0;
+    mesh.material.uniforms.uLoop.value = 0;
     return true;
   }
 
   unfocus() { if (this.focus && this.focus.dir === 1) this.focus.dir = -1; }
 
-  scrub(delta) { if (this.focus) { const u = this.focus.mesh.material.uniforms.uOffset; u.value = clamp(u.value + delta, 0.0005, 0.9995); } }
+  scrub(delta) { if (this.focus) { const u = this.focus.mesh.material.uniforms.uOffset; u.value = clamp(u.value + delta, 0, 1); } }
 
   updateFocus(dt) {
     const f = this.focus;
@@ -291,6 +294,8 @@ export class World {
       mesh.quaternion.copy(ud.slotQuat);
       mesh.scale.setScalar(1);
       mesh.material.uniforms.uUnroll.value = 0;
+      mesh.material.uniforms.uLoop.value = 1;
+      mesh.material.uniforms.uOffset.value = Math.max(0.03, Math.min(0.97, mesh.material.uniforms.uOffset.value));
       this.focus = null;
     }
   }
@@ -305,7 +310,7 @@ export class World {
     cam.position.copy(pose.pos);
     const tl = reduced || !pointerActive ? 0 : 1;
     const bottomK = smooth(0.74, 0.8, p) * (1 - smooth(0.88, 0.92, p));
-    const yawR = THREE.MathUtils.lerp(0.22, 0.62, bottomK), pitR = THREE.MathUtils.lerp(0.12, 0.62, bottomK);
+    const yawR = THREE.MathUtils.lerp(0.22, 0.34, bottomK), pitR = THREE.MathUtils.lerp(0.12, 0.26, bottomK);
     this.lookOff.lerp(new THREE.Vector2(-pointer.x * yawR * tl, (pointer.y > 0 ? pointer.y * pitR : pointer.y * 0.12) * tl), 1 - Math.exp(-dt * 2.2));
     if (this.focus) this.lookOff.multiplyScalar(0.9);
     cam.quaternion.copy(pose.quat).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(this.lookOff.y, this.lookOff.x, 0, "YXZ")));
@@ -315,9 +320,10 @@ export class World {
     // fog thins as we rise for the finale so the whole well can glow
     const fogK = p > 0.9 ? THREE.MathUtils.lerp(0.03, 0.004, smooth(0.9, 0.97, p)) : p < 0.07 ? THREE.MathUtils.lerp(0.012, 0.03, smooth(0.0, 0.07, p)) : 0.03;
     this.scene.fog.density = fogK;
+    this.mouthMat.color.copy(BONE).multiplyScalar(1.6 + 3.2 * smooth(0.92, 1, p));
 
     // rings turn and screens play, both driven by scroll velocity (scrolling up runs them backwards)
-    const drive = (0.16 + 2.5 * sv) * motion;
+    const drive = (0.32 + 3.6 * sv) * motion;
     for (const r of this.rings) {
       r.angle += r.speed * drive * dt;
       r.group.rotation.y = r.angle;
@@ -325,14 +331,14 @@ export class World {
       if (det !== r.detent) {
         r.detent = det;
         const dist = Math.abs(r.y - cam.position.y);
-        const s = Math.exp(-(dist * dist) / 22) * (0.35 + 0.65 * Math.min(1, Math.abs(sv)));
-        if (s > 0.06 && t - r.lastClick > 0.035 && !this.focus) { ev.push({ type: "ratchet", t, s, pan: Math.sin(r.angle * 3.1 + r.i) * 0.6 }); r.lastClick = t; }
+        const s = Math.exp(-(dist * dist) / 40) * (0.45 + 0.55 * Math.min(1, Math.abs(sv) * 2));
+        if (s > 0.05 && t - r.lastClick > 0.03 && !this.focus) { ev.push({ type: "ratchet", t, s, pan: Math.sin(r.angle * 3.1 + r.i) * 0.6 }); r.lastClick = t; }
       }
     }
     const play = (0.1 + 1.7 * sv) * motion;
     for (const s of this.screens) {
       const u = s.material.uniforms;
-      if (this.focus && this.focus.mesh === s) { u.uOffset.value = clamp(u.uOffset.value + dt * 0.035, 0.0005, 0.9995); }
+      if (this.focus && this.focus.mesh === s) { u.uOffset.value = clamp(u.uOffset.value + dt * 0.03, 0, 1); }
       else { u.uOffset.value = ((u.uOffset.value + dt * s.userData.rate * play) % 1 + 1) % 1; }
       u.uTime.value = t;
       u.uFog.value = fogK;

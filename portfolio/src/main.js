@@ -223,6 +223,7 @@ function boot() {
     const w = info.watched;
     const name = w ? (w.userData.zoe ? `the zoetrope — ${SITES[info.zoeIdx].name}` : `${String(SITES.indexOf(w.userData.site) + 1).padStart(2, "0")} ${w.userData.site.name}`) : "—";
     if (name !== lastWatched) { hud.watching.textContent = name; lastWatched = name; }
+    fadeTo($("#watching"), p > 0.9 ? 0 : 1, dt, 1.4);
     const atBottom = p > 0.75 && p < 0.9 && !world.focus;
     fadeTo(hud.zoe, atBottom ? 1 : 0, dt, 1.2);
     const g = fadeTo(gateEl, entered ? 0 : 1, dt, 1.1);
@@ -261,7 +262,8 @@ function boot() {
       ready: true,
       size(w, h) { renderer.setPixelRatio(1); renderer.setSize(w, h, false); canvas.style.width = w + "px"; canvas.style.height = h + "px";
         world.camera.aspect = w / h; world.camera.updateProjectionMatrix(); post.setSize(w, h, 1); },
-      enter(t) { clock = t; enter(false); enterT = t; },
+      enter(t) { clock = t; enter(false); enterT = t; $("#enter-sound").classList.remove("press"); },
+      press(on) { $("#enter-sound").classList.toggle("press", on); },
       gate(t) { clock = t; gateTitle.update(t); post.lens.uniforms.uFade.value = 0.25; world.update({ t, dt: 1 / 30, p: 0, vel: 0, pointer, pointerActive: false, reduced }); post.composer.render(); },
       frame(t, dt, target, cmd = {}) {
         clock = t;

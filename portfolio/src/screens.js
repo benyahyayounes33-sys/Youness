@@ -61,7 +61,7 @@ const vertex = /* glsl */ `
 `;
 
 const siteFragment = /* glsl */ `
-  uniform sampler2D map; uniform float uOffset, uWin;
+  uniform sampler2D map; uniform float uOffset, uWin, uLoop;
   ${common}
   vec3 site(vec2 uv){
     float f = uOffset * (1.0 - uWin) + (1.0 - uv.y) * uWin;
@@ -76,10 +76,12 @@ const siteFragment = /* glsl */ `
     float ca = 0.0016 + 0.012 * dot(c, c);
     vec3 col = vec3(site(vUv + vec2(ca, 0.0)).r, site(vUv).g, site(vUv - vec2(ca, 0.0)).b);
     col = col * 1.08 + vec3(0.035, 0.037, 0.04);   // a lit display never reads as pure black
+    col = col / (1.0 + 0.55 * max(max(col.r, col.g), col.b));   // soft highlight roll-off: white pages glow, never blow out
+    col *= 1.25;
     col *= 0.93 + 0.07 * sin(vUv.y * uSize.y * 190.0 - uTime * 4.0);
     col *= 1.0 - 0.45 * dot(c * 1.5, c * 1.5);
     float loop = smoothstep(0.0, 0.02, uOffset) * smoothstep(1.0, 0.98, uOffset);
-    col *= mix(0.12, 1.0, loop) * uBright;
+    col *= mix(1.0, mix(0.12, 1.0, loop), uLoop) * uBright;
     gl_FragColor = vec4(finish(glassFrame(col, d, bevel)), 1.0);
   }
 `;
@@ -104,6 +106,8 @@ const zoeFragment = /* glsl */ `
     vec3 a = vec3(siteA(vUv + vec2(ca, 0.0)).r, siteA(vUv).g, siteA(vUv - vec2(ca, 0.0)).b);
     vec3 b = vec3(siteB(vUv + vec2(ca, 0.0)).r, siteB(vUv).g, siteB(vUv - vec2(ca, 0.0)).b);
     vec3 col = mix(a, b, reveal);
+    col = col * 1.06 + vec3(0.03);
+    col = col / (1.0 + 0.55 * max(max(col.r, col.g), col.b)) * 1.25;
     float shutter = sin(3.14159 * clamp(uT, 0.0, 1.0));                 // slats only while cranking
     float slat = smoothstep(0.0, 0.07, lx) * smoothstep(1.0, 0.93, lx);
     col *= mix(1.0, mix(0.18, 1.0, slat), shutter);
@@ -121,7 +125,7 @@ const baseUniforms = (w, h) => ({
 
 export function siteMaterial(tex, win, w, h) {
   return new THREE.ShaderMaterial({
-    uniforms: { ...baseUniforms(w, h), map: { value: tex }, uOffset: { value: Math.random() }, uWin: { value: win } },
+    uniforms: { ...baseUniforms(w, h), map: { value: tex }, uOffset: { value: Math.random() }, uWin: { value: win }, uLoop: { value: 1 } },
     vertexShader: vertex,
     fragmentShader: siteFragment,
   });

@@ -55,7 +55,12 @@ export class SoundEngine {
     this.ctx = ctx;
     this.master = ctx.createGain();
     this.master.gain.value = 0;
-    this.master.connect(destination);
+    this.comp = ctx.createDynamicsCompressor();
+    this.comp.threshold.value = -26; this.comp.knee.value = 12; this.comp.ratio.value = 4;
+    this.comp.attack.value = 0.004; this.comp.release.value = 0.25;
+    this.makeup = ctx.createGain();
+    this.makeup.gain.value = 2.2;
+    this.master.connect(this.comp).connect(this.makeup).connect(destination);
     this.lastClick = -1;
   }
 
@@ -77,10 +82,23 @@ export class SoundEngine {
     this.room.loop = true;
     this.roomLp = ctx.createBiquadFilter();
     this.roomLp.type = "lowpass";
-    this.roomLp.frequency.value = 320;
+    this.roomLp.frequency.value = 260;
+    this.roomHp = ctx.createBiquadFilter();
+    this.roomHp.type = "highpass";
+    this.roomHp.frequency.value = 38;
     this.roomGain = ctx.createGain();
-    this.roomGain.gain.value = 0.42;
-    this.room.connect(this.roomLp).connect(this.roomGain).connect(this.master);
+    this.roomGain.gain.value = 0.26;
+    this.room.connect(this.roomHp).connect(this.roomLp).connect(this.roomGain).connect(this.master);
+    // air: the faint hiss of a big stone room
+    this.air = ctx.createBufferSource();
+    this.air.buffer = this.white;
+    this.air.loop = true;
+    this.airHp = ctx.createBiquadFilter();
+    this.airHp.type = "highpass";
+    this.airHp.frequency.value = 3800;
+    this.airGain = ctx.createGain();
+    this.airGain.gain.value = 0.012;
+    this.air.connect(this.airHp).connect(this.airGain).connect(this.verb);
     this.hum = [50, 100, 150].map((f, i) => {
       const o = ctx.createOscillator();
       o.frequency.value = f;
@@ -97,7 +115,7 @@ export class SoundEngine {
     this.windBp = ctx.createBiquadFilter();
     this.windBp.type = "bandpass";
     this.windBp.frequency.value = 520;
-    this.windBp.Q.value = 0.9;
+    this.windBp.Q.value = 0.7;
     this.windGain = ctx.createGain();
     this.windGain.gain.value = 0.0;
     this.windPan = ctx.createStereoPanner();
@@ -123,7 +141,7 @@ export class SoundEngine {
   }
 
   start(t = this.ctx.currentTime, fade = 2.5) {
-    [this.room, this.wind, this.whistle, this.gust, ...this.hum].forEach((n) => n.start(t));
+    [this.room, this.air, this.wind, this.whistle, this.gust, ...this.hum].forEach((n) => n.start(t));
     this.master.gain.setValueAtTime(0, t);
     this.master.gain.linearRampToValueAtTime(0.9, t + fade);
   }
@@ -136,12 +154,12 @@ export class SoundEngine {
   /** speed: 0..~3 (normalized scroll speed), depth: 0 (top) .. 1 (bottom) */
   setSpeed(speed, depth, t = this.ctx.currentTime, tc = 0.18) {
     const s = Math.min(1.6, speed);
-    this.windGain.gain.setTargetAtTime(0.025 + 0.22 * s, t, tc);
-    this.windBp.frequency.setTargetAtTime(380 + 900 * s + 200 * depth, t, tc);
-    this.whistleGain.gain.setTargetAtTime(0.012 * Math.max(0, s - 0.5), t, tc);
+    this.windGain.gain.setTargetAtTime(0.07 + 0.42 * s, t, tc);
+    this.windBp.frequency.setTargetAtTime(450 + 1200 * s + 250 * depth, t, tc);
+    this.whistleGain.gain.setTargetAtTime(0.004 + 0.02 * Math.max(0, s - 0.35), t, tc);
     this.whistleBp.frequency.setTargetAtTime(1500 + 1400 * s, t, tc);
-    this.roomLp.frequency.setTargetAtTime(340 - 170 * depth, t, 0.8);
-    this.roomGain.gain.setTargetAtTime(0.36 + 0.18 * depth, t, 0.8);
+    this.roomLp.frequency.setTargetAtTime(280 - 120 * depth, t, 0.8);
+    this.roomGain.gain.setTargetAtTime(0.22 + 0.12 * depth, t, 0.8);
   }
 
   ratchet(t = this.ctx.currentTime, strength = 1, pan = 0) {
@@ -156,7 +174,7 @@ export class SoundEngine {
     bp.frequency.value = 1900 + Math.random() * 1400;
     bp.Q.value = 3.5;
     const g = ctx.createGain();
-    g.gain.value = 0.42 * strength;
+    g.gain.value = 0.85 * strength;
     const p = ctx.createStereoPanner();
     p.pan.value = Math.max(-1, Math.min(1, pan));
     src.connect(bp).connect(g).connect(p);
@@ -208,7 +226,7 @@ export async function renderOffline({ duration, startAt, samples, events }) {
   const L = buf.getChannelData(0), R = buf.getChannelData(1);
   let peak = 1e-6;
   for (let i = 0; i < L.length; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
-  const gain = Math.min(4, 0.89 / peak);
+  const gain = Math.min(6, 0.89 / peak);
   const out = new DataView(new ArrayBuffer(44 + L.length * 4));
   const w = (o, s) => [...s].forEach((c, i) => out.setUint8(o + i, c.charCodeAt(0)));
   w(0, "RIFF"); out.setUint32(4, 36 + L.length * 4, true); w(8, "WAVE"); w(12, "fmt ");

@@ -18,7 +18,7 @@ const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 const ENTER = 4.6, END = 71;
 const keys = [ // [t, p] — piecewise smooth
   [ENTER, 0], [8.5, 0.035], [11.5, 0.075], [16, 0.17], [17.2, 0.27], [21, 0.31], [24, 0.33],
-  [37, 0.36], [43, 0.5], [44.1, 0.62], [47, 0.66], [51, 0.82], [62.5, 0.84], [69, 1.0], [END, 1.0],
+  [37, 0.36], [42.4, 0.47], [43.3, 0.555], [47.5, 0.62], [51, 0.82], [62.5, 0.84], [69, 1.0], [END, 1.0],
 ];
 function pAt(t) {
   if (t <= keys[0][0]) return 0;
@@ -35,9 +35,12 @@ function cmdAt(t, f) {
   if (f === Math.round(27.6 * FPS)) c.focus = "pointer";
   if (t > 28.8 && t < 33.8) c.scrub = 0.0042;
   if (f === Math.round(34.2 * FPS)) c.unfocus = true;
-  // at the bottom: look up at the rings (the figure turns), then back to the zoetrope
-  if (t > 54 && t < 59.5) c.pointer = [-0.78 * sm(54, 55.6, t), 0.85 * sm(54, 55.6, t)];
-  if (t >= 59.5 && t < 62) c.pointer = [-0.78 * (1 - sm(59.5, 61, t)), 0.85 * (1 - sm(59.5, 61, t))];
+  // at the bottom: look at a ring screen (the figure turns to it), then another, then back to the zoetrope
+  const A = [-0.2, 0.92], B = [0.3, 0.9];
+  const mix = (u, v, k) => [u[0] + (v[0] - u[0]) * k, u[1] + (v[1] - u[1]) * k];
+  if (t > 53.5 && t < 57) c.pointer = mix([0, 0], A, sm(53.5, 55, t));
+  else if (t >= 57 && t < 59.6) c.pointer = mix(A, B, sm(57, 58.2, t));
+  else if (t >= 59.6 && t < 62) c.pointer = mix(B, [0, 0], sm(59.6, 61, t));
   return c;
 }
 
@@ -60,7 +63,7 @@ function cmdAt(t, f) {
   for (let f = 0; f < N; f++) {
     const t = f / FPS;
     if (t < ENTER) {
-      await page.evaluate((t) => __cap.gate(t), t);
+      await page.evaluate(([t, press]) => { __cap.press(press); __cap.gate(t); }, [t, t > 3.9]);
     } else {
       if (!entered) { await page.evaluate((t) => __cap.enter(t), t); entered = true; }
       const c = cmdAt(t, f);
