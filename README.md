@@ -20,6 +20,9 @@ python3 -m http.server 8000   # then visit http://localhost:8000
 
 > **Launching the brand?** Read [`LAUNCH_PLAN.md`](LAUNCH_PLAN.md) — strategy, pricing,
 > production, marketing, a 30-day timeline and a go-live checklist.
+>
+> **Making ads?** [`ads/AD_FILMS.md`](ads/AD_FILMS.md) has 10 ready-to-produce 15-second vertical
+> ad films: storyboards, camera, AI video prompts, sound design and edit notes.
 
 ## Customise
 Everything is in **`js/products.js`**:
