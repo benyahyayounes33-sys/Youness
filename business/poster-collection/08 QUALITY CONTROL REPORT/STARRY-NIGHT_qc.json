@@ -1,0 +1,156 @@
+{
+ "source": "Vincent van Gogh, The Starry Night (1889), public domain (artist died 1890). Digital file: Wikimedia Commons 'Van Gogh - Starry Night - Google Art Project.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg)",
+ "source_px": [
+  3759,
+  3016
+ ],
+ "colour": "no embedded profile - treated as sRGB",
+ "processing": "Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.",
+ "palette": [
+  "#202526",
+  "#323F5B",
+  "#425B88",
+  "#678097",
+  "#9EA786"
+ ],
+ "files": {
+  "STARRY-NIGHT_A5_300DPI_PRINT.pdf": {
+   "page_mm": [
+    148.0,
+    210.0
+   ],
+   "expected_mm": [
+    148,
+    210
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1515,
+    1216
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "STARRY-NIGHT_A5_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    154.0,
+    216.0
+   ],
+   "expected_mm": [
+    154,
+    216
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1515,
+    1216
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "STARRY-NIGHT_A4_300DPI_PRINT.pdf": {
+   "page_mm": [
+    210.0,
+    297.0
+   ],
+   "expected_mm": [
+    210,
+    297
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2150,
+    1725
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "STARRY-NIGHT_A4_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    216.0,
+    303.0
+   ],
+   "expected_mm": [
+    216,
+    303
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2150,
+    1725
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "STARRY-NIGHT_A3_300DPI_PRINT.pdf": {
+   "page_mm": [
+    297.0,
+    420.0
+   ],
+   "expected_mm": [
+    297,
+    420
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    3040,
+    2439
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "STARRY-NIGHT_A3_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    303.0,
+    426.0
+   ],
+   "expected_mm": [
+    303,
+    426
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    3040,
+    2439
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  }
+ }
+}

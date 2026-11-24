@@ -1,0 +1,156 @@
+{
+ "source": "Johannes Vermeer, Girl with a Pearl Earring (c. 1665), public domain (artist died 1675). Digital file: Wikimedia Commons '1665 Girl with a Pearl Earring.jpg', 3840 px standard rendition (https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg)",
+ "source_px": [
+  3840,
+  4548
+ ],
+ "colour": "embedded ICC profile converted to sRGB (relative colorimetric)",
+ "processing": "Lanczos downsampling to exactly 300 DPI at printed size; UnsharpMask radius 0.8 px, 45 %, threshold 2 (output sharpening for print). No colour, contrast or content changes. No upscaling, no AI generation.",
+ "palette": [
+  "#231B0F",
+  "#2D2920",
+  "#585243",
+  "#A28C6B",
+  "#CEC0AE"
+ ],
+ "files": {
+  "PEARL-EARRING_A5_300DPI_PRINT.pdf": {
+   "page_mm": [
+    148.0,
+    210.0
+   ],
+   "expected_mm": [
+    148,
+    210
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1282,
+    1518
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "PEARL-EARRING_A5_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    154.0,
+    216.0
+   ],
+   "expected_mm": [
+    154,
+    216
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1282,
+    1518
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "PEARL-EARRING_A4_300DPI_PRINT.pdf": {
+   "page_mm": [
+    210.0,
+    297.0
+   ],
+   "expected_mm": [
+    210,
+    297
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1819,
+    2154
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "PEARL-EARRING_A4_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    216.0,
+    303.0
+   ],
+   "expected_mm": [
+    216,
+    303
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    1819,
+    2154
+   ],
+   "effective_dpi": 300.0,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "PEARL-EARRING_A3_300DPI_PRINT.pdf": {
+   "page_mm": [
+    297.0,
+    420.0
+   ],
+   "expected_mm": [
+    297,
+    420
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2572,
+    3047
+   ],
+   "effective_dpi": 299.9,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  },
+  "PEARL-EARRING_A3_300DPI_PRINT_BLEED3MM.pdf": {
+   "page_mm": [
+    303.0,
+    426.0
+   ],
+   "expected_mm": [
+    303,
+    426
+   ],
+   "page_size_ok": true,
+   "image_px": [
+    2572,
+    3047
+   ],
+   "effective_dpi": 299.9,
+   "dpi_ok": true,
+   "aspect_preserved": true,
+   "embedded_as": "['/DCTDecode']",
+   "no_recompression": true,
+   "content_inside_safe_zone": true,
+   "pages": 1,
+   "PASS": true
+  }
+ }
+}
